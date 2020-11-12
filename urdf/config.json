@@ -1,0 +1,6 @@
+{
+    "documentId": "763e26b59dfded9b25199905",
+    "outputFormat": "urdf",
+    "addDummyBaseLink": true,
+    "robotName": "DeliveryBot",
+}	

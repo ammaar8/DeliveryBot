@@ -1,0 +1,175 @@
+<robot name="DeliveryBot">
+<link name="base_link"></link>
+<joint name="base_link_to_base" type="fixed">
+<parent link="base_link"/>
+<child link="body" />
+<origin rpy="0.0 0 0" xyz="0 0 0"/>
+</joint>
+<link name="body">
+<visual>
+<origin xyz="-5.55112e-17 -0.00273569 -0.05" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://deliverybot/urdf/body.stl"/>
+</geometry>
+<material name="body_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-5.55112e-17 -0.00273569 -0.05" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://deliverybot/urdf/body.stl"/>
+</geometry>
+<material name="body_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="2.01199e-16 0.0116169 0.135939" rpy="0 0 0"/>
+<mass value="9.56649" />
+<inertia ixx="0.270308" ixy="0"  ixz="-1.76457e-16" iyy="0.296385" iyz="-0.0146076" izz="0.178823" />
+</inertial>
+</link>
+
+<link name="left_wheel">
+<visual>
+<origin xyz="0 -0.1 0.155" rpy="-1.5708 -1.5708 0" />
+<geometry>
+<mesh filename="package://deliverybot/urdf/left_wheel.stl"/>
+</geometry>
+<material name="left_wheel_material">
+<color rgba="0.498039 0.498039 0.498039 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 -0.1 0.155" rpy="-1.5708 -1.5708 0" />
+<geometry>
+<mesh filename="package://deliverybot/urdf/left_wheel.stl"/>
+</geometry>
+<material name="left_wheel_material">
+<color rgba="0.498039 0.498039 0.498039 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-2.28687e-18 0 -0.025" rpy="0 0 0"/>
+<mass value="1.65248" />
+<inertia ixx="0.00447546" ixy="-1.05108e-18"  ixz="0" iyy="0.00826239" iyz="0" izz="0.00447546" />
+</inertial>
+</link>
+
+<joint name="body_left_wheel" type="continuous">
+<origin xyz="-0.155 -0.00273569 0.05" rpy="-3.14159 -1.5708 0" />
+<parent link="body" />
+<child link="left_wheel" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="right_wheel">
+<visual>
+<origin xyz="0 0.1 0.155" rpy="1.5708 1.5708 0" />
+<geometry>
+<mesh filename="package://deliverybot/urdf/right_wheel.stl"/>
+</geometry>
+<material name="right_wheel_material">
+<color rgba="0.498039 0.498039 0.498039 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 0.1 0.155" rpy="1.5708 1.5708 0" />
+<geometry>
+<mesh filename="package://deliverybot/urdf/right_wheel.stl"/>
+</geometry>
+<material name="right_wheel_material">
+<color rgba="0.498039 0.498039 0.498039 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-2.28687e-18 0 -0.025" rpy="0 0 0"/>
+<mass value="1.65248" />
+<inertia ixx="0.00447546" ixy="1.05108e-18"  ixz="0" iyy="0.00826239" iyz="0" izz="0.00447546" />
+</inertial>
+</link>
+
+<joint name="body_right_wheel" type="continuous">
+<origin xyz="0.155 -0.00273569 0.05" rpy="-2.77556e-16 -1.5708 0" />
+<parent link="body" />
+<child link="right_wheel" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="castor">
+<visual>
+<origin xyz="0 0.125 -0.025" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://deliverybot/urdf/castor.stl"/>
+</geometry>
+<material name="castor_material">
+<color rgba="0.960784 0.835294 0.470588 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 0.125 -0.025" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://deliverybot/urdf/castor.stl"/>
+</geometry>
+<material name="castor_material">
+<color rgba="0.960784 0.835294 0.470588 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0 0 3.46945e-18" rpy="0 0 0"/>
+<mass value="0.0688532" />
+<inertia ixx="1.72133e-05" ixy="0"  ixz="0" iyy="1.72133e-05" iyz="0" izz="1.72133e-05" />
+</inertial>
+</link>
+
+<joint name="body_castor" type="fixed">
+<origin xyz="-5.55112e-17 -0.127736 -0.025" rpy="0 -0 0" />
+<parent link="body" />
+<child link="castor" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="door">
+<visual>
+<origin xyz="0.127 -0.205 -0.145" rpy="-1.5708 -1.5708 0" />
+<geometry>
+<mesh filename="package://deliverybot/urdf/door.stl"/>
+</geometry>
+<material name="door_material">
+<color rgba="0.796078 0.905882 0.745098 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.127 -0.205 -0.145" rpy="-1.5708 -1.5708 0" />
+<geometry>
+<mesh filename="package://deliverybot/urdf/door.stl"/>
+</geometry>
+<material name="door_material">
+<color rgba="0.796078 0.905882 0.745098 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.000258506 0.145116 -0.145" rpy="0 0 0"/>
+<mass value="0.596718" />
+<inertia ixx="0.00521211" ixy="1.20185e-47"  ixz="2.98715e-05" iyy="0.00816722" iyz="5.06885e-50" izz="0.0129235" />
+</inertial>
+</link>
+
+<joint name="body_door" type="revolute">
+<origin xyz="0.145 -0.129736 0.155" rpy="-3.14159 -1.5708 0" />
+<parent link="body" />
+<child link="door" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" lower="-1.5708" upper="0.523599"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+
+</robot>
