@@ -3,4 +3,5 @@
     "outputFormat": "urdf",
     "addDummyBaseLink": true,
     "robotName": "DeliveryBot",
+    "packageName": "deliverybot/urdf/meshes/"
 }	
