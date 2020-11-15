@@ -18,7 +18,7 @@ int main(int argc, char** argv){
     geometry_msgs::TransformStamped odom_trans;
     sensor_msgs::JointState joint_state;
     odom_trans.header.frame_id = "odom";
-    odom_trans.child_frame_id = "body";
+    odom_trans.child_frame_id = "base_link";
 
     while (ros::ok()){
         joint_state.header.stamp = ros::Time::now();
