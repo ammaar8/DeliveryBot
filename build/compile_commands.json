@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/solkar/catkin_ws/src/DeliveryBot/build",
+  "command": "/usr/bin/c++    -g   -o CMakeFiles/DeliveryBot.dir/DeliveryBot.cpp.o -c /home/solkar/catkin_ws/src/DeliveryBot/DeliveryBot.cpp",
+  "file": "/home/solkar/catkin_ws/src/DeliveryBot/DeliveryBot.cpp"
+}
+]

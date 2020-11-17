@@ -1,0 +1,13 @@
+<launch>
+    <rosparam file="$(find deliverybot_control)/config/deliverybot_control.yaml" command="load"/>
+
+    <node name="controller_spawn" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" ns="/robot" 
+        args="joint_door_position_controller joint_state_controller"/>
+    
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+        <remap from="/joint_states" to="/robot/joint_states" />
+    </node>
+
+</launch>

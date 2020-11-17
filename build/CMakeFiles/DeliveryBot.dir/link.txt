@@ -1,0 +1,2 @@
+/usr/bin/ar qc libDeliveryBot.a  CMakeFiles/DeliveryBot.dir/DeliveryBot.cpp.o
+/usr/bin/ranlib libDeliveryBot.a
