@@ -1,5 +1,5 @@
 <robot name="DeliveryBot" xmlns:xacro="http://www.ros.org/wiki/xacro">
-    <xacro:include filename="$(find deliverybot)/urdf/robot.gazebo"/>
+    <xacro:include filename="$(find deliverybot)/urdf/dbot_laser.gazebo"/>
 
     <link name="base_link">
     </link>
