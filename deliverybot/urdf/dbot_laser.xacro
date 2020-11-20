@@ -6,7 +6,7 @@
     <joint name="base_link_to_base" type="fixed">
         <parent link="base_link"/>
         <child link="body" />
-        <origin rpy="0.0 0 0" xyz="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 3.141" />
     </joint>
     <link name="body">
         <visual>
@@ -61,7 +61,7 @@
     </link>
 
     <joint name="joint_left_wheel" type="continuous">
-        <origin xyz="-0.155 0.0722643 0.05" rpy="3.14159 -1.5708 0" />
+        <origin xyz="0.155 0.0722643 0.05" rpy="3.14159 -1.5708 0" />
         <parent link="body" />
         <child link="left_wheel" />
         <axis xyz="0 0 1"/>
@@ -96,7 +96,7 @@
     </link>
 
     <joint name="joint_right_wheel" type="continuous">
-        <origin xyz="0.155 0.0722643 0.05" rpy="3.14159 -1.5708 0" />
+        <origin xyz="-0.155 0.0722643 0.05" rpy="3.14159 -1.5708 0" />
         <parent link="body" />
         <child link="right_wheel" />
         <axis xyz="0 0 1"/>
@@ -176,7 +176,7 @@
 
     <link name="sensor_laser">
         <visual>
-            <origin xyz="0 -0.125 0.56" rpy="3.14159 -0 0" />
+            <origin xyz="0 -0.125 0.56" rpy="3.14159 0 0" />
             <geometry>
                 <mesh filename="package://deliverybot/urdf/meshes/sensor_laser.stl"/>
             </geometry>
@@ -185,7 +185,7 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 -0.125 0.56" rpy="3.14159 -0 0" />
+            <origin xyz="0 -0.125 0.56" rpy="3.14159 0 0" />
             <geometry>
                 <mesh filename="package://deliverybot/urdf/meshes/sensor_laser.stl"/>
             </geometry>
@@ -201,7 +201,7 @@
     </link>
 
     <joint name="joint_laser_sensor" type="fixed">
-        <origin xyz="-5.55112e-17 -0.127736 0.51" rpy="3.14159 -0 0" />
+        <origin xyz="-5.55112e-17 -0.127736 0.535" rpy="0 0 3.14159" />
         <parent link="body" />
         <child link="sensor_laser" />
         <axis xyz="0 0 1"/>
