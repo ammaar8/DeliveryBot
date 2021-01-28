@@ -61,10 +61,10 @@
     </link>
 
     <joint name="joint_left_wheel" type="continuous">
-        <origin xyz="0.155 0.0722643 0.05" rpy="3.14159 -1.5708 0" />
+        <origin xyz="0.155 0.0722643 0.05" rpy="0 -1.5708 0" /> <!-- rpy="-1.5708" -->
         <parent link="body" />
         <child link="left_wheel" />
-        <axis xyz="0 0 1"/>
+        <axis xyz="0 0 -1"/>
         <limit effort="1" velocity="20" />
         <joint_properties friction="0.0"/>
     </joint>
@@ -96,10 +96,10 @@
     </link>
 
     <joint name="joint_right_wheel" type="continuous">
-        <origin xyz="-0.155 0.0722643 0.05" rpy="3.14159 -1.5708 0" />
+        <origin xyz="-0.155 0.0722643 0.05" rpy="0 -1.5708 0" /> <!-- rpy="-1.5708" -->
         <parent link="body" />
         <child link="right_wheel" />
-        <axis xyz="0 0 1"/>
+        <axis xyz="0 0 -1"/>
         <limit effort="1" velocity="20" />
         <joint_properties friction="0.0"/>
     </joint>
