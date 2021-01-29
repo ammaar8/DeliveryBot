@@ -82,7 +82,7 @@
 			<odometrySource>world</odometrySource>
 			
 			<robotBaseFrame>base_link</robotBaseFrame>
-			<publishWheelTF>false</publishWheelTF>
+			<publishWheelTF>true</publishWheelTF>
 			<publishOdomTF>true</publishOdomTF>
 			<publishTf>true</publishTf>
 			<publishWheelJointState>true</publishWheelJointState>
