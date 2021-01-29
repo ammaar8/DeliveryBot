@@ -68,17 +68,21 @@
 		<plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
 			<legacyMode>false</legacyMode>
 			<alwaysOn>true</alwaysOn>
-			<updateRate>20</updateRate>
+			<updateRate>30</updateRate>
 			<leftJoint>joint_left_wheel</leftJoint>
 			<rightJoint>joint_right_wheel</rightJoint>
+			
 			<wheelSeparation>0.31</wheelSeparation>
 			<wheelDiameter>0.2</wheelDiameter>
-			<torque>0.1</torque>
+			<wheelTorque>10</wheelTorque>
+			<wheelAcceleration>1</wheelAcceleration>
 			<commandTopic>cmd_vel</commandTopic>
 			<odometryTopic>odom</odometryTopic>
 			<odometryFrame>odom</odometryFrame>
+			<odometrySource>world</odometrySource>
+			
 			<robotBaseFrame>base_link</robotBaseFrame>
-			<publishWheelTF>true</publishWheelTF>
+			<publishWheelTF>false</publishWheelTF>
 			<publishOdomTF>true</publishOdomTF>
 			<publishTf>true</publishTf>
 			<publishWheelJointState>true</publishWheelJointState>
