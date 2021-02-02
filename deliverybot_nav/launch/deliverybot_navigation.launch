@@ -1,5 +1,5 @@
 <launch>
-    <arg name="map_file" default="$(find deliverybot_nav)/map/mymap.yaml" />
+    <arg name="map_file" default="$(find deliverybot)/maps/willowgarage.yaml" />
     <arg name="move_forward_only" default="false" />
 
     <!-- Map Server -->
