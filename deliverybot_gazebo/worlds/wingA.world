@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+<!-- Environment Mesh -->
+    <model name="wingA">
+      <pose>0 0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="wingA">
+        <visual name="visual">
+          <geometry>
+            <mesh><uri>model://wingA/wingAv4.dae</uri></mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh><uri>model://wingA/wingAv4.dae</uri></mesh>
+          </geometry>
+        </collision>        
+      </link>
+    </model>
+
+    <plugin filename="libSimEventsPlugin.so" name="elevator_event_plugin">
+      <!-- Region on the ground floor, in front of the elevator -->
+      <region>
+        <name>region1</name>
+        <volume>
+          <min>-2 0.7 0</min>
+          <max>2 3.0 1</max>
+        </volume>
+      </region>
+
+      <!-- Region on the first floor, in front of the elevator -->
+      <region>
+        <name>region2</name>
+        <volume>
+          <min>-2 0.7 3</min>
+          <max>2 3.0 4</max>
+        </volume>
+      </region>
+
+      <region>
+        <name>region3</name>
+        <volume>
+          <min>-2 0.7 6</min>
+          <max>2 3.0 7</max>
+        </volume>
+      </region>
+
+      <!-- Event publisher for ground floor-->
+      <event>
+        <name>region1_event</name>
+        <type>occupied</type>
+        <region>region1</region>
+        <topic>~/elevator</topic>
+        <msg_data>0</msg_data>
+      </event>
+
+      <!-- Event publisher for first floor-->
+      <event>
+        <name>region2_event</name>
+        <type>occupied</type>
+        <region>region2</region>
+        <topic>~/elevator</topic>
+        <msg_data>1</msg_data>
+      </event>
+
+      <event>
+        <name>region3_event</name>
+        <type>occupied</type>
+        <region>region3</region>
+        <topic>~/elevator</topic>
+        <msg_data>2</msg_data>
+      </event>
+
+    </plugin>
+
+    <!-- <model name="shaft">
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+      <link name="shaft">
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://elevator_shaft.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file://elevator_shaft.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model> -->
+
+    <model name="elevator">
+      <pose>0 0 0.015 0 0 0</pose>
+
+      <link name="car">
+        <inertial>
+          <mass>800</mass>
+        </inertial>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://wingA/elevator_car.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://wingA/elevator_car.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+      </link>
+
+      <link name="door">
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://wingA/elevator_door.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://wingA/elevator_door.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+      </link>
+
+      <joint name="door" type="prismatic">
+        <parent>car</parent>
+        <child>door</child>
+        <axis>
+          <xyz>-1 0 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1</upper>
+            <effort>10</effort>
+          </limit>
+
+          <dynamics>
+            <damping>2</damping>
+          </dynamics>
+        </axis>
+      </joint>
+
+      <joint name="lift" type="prismatic">
+        <parent>world</parent>
+        <child>car</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>0.015</lower>
+            <upper>10</upper>
+            <effort>100000</effort>
+          </limit>
+
+          <dynamics>
+            <damping>50</damping>
+          </dynamics>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+      </joint>
+
+      <plugin filename="libElevatorPlugin.so" name="elevator_plugin">
+        <lift_joint>elevator::lift</lift_joint>
+        <door_joint>elevator::door</door_joint>
+        <floor_height>3.0</floor_height>
+
+        <!-- Time the elevator door will stay open in seconds -->
+        <door_wait_time>3</door_wait_time>
+
+        <!-- This topic is used to control the elevator -->
+        <topic>~/elevator</topic>
+      </plugin>
+    </model>
+  </world>
+</sdf>
