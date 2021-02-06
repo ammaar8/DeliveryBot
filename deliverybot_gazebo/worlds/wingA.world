@@ -26,8 +26,8 @@
       </link>
     </model>
 
-    <plugin filename="libSimEventsPlugin.so" name="elevator_event_plugin">
-      <!-- Region on the ground floor, in front of the elevator -->
+    <!-- <plugin filename="libSimEventsPlugin.so" name="elevator_event_plugin">
+      
       <region>
         <name>region1</name>
         <volume>
@@ -36,7 +36,6 @@
         </volume>
       </region>
 
-      <!-- Region on the first floor, in front of the elevator -->
       <region>
         <name>region2</name>
         <volume>
@@ -53,7 +52,6 @@
         </volume>
       </region>
 
-      <!-- Event publisher for ground floor-->
       <event>
         <name>region1_event</name>
         <type>occupied</type>
@@ -62,7 +60,6 @@
         <msg_data>0</msg_data>
       </event>
 
-      <!-- Event publisher for first floor-->
       <event>
         <name>region2_event</name>
         <type>occupied</type>
@@ -79,7 +76,8 @@
         <msg_data>2</msg_data>
       </event>
 
-    </plugin>
+
+    </plugin> -->
 
     <!-- <model name="shaft">
       <static>true</static>
@@ -187,7 +185,7 @@
         <floor_height>3.0</floor_height>
 
         <!-- Time the elevator door will stay open in seconds -->
-        <door_wait_time>3</door_wait_time>
+        <door_wait_time>10</door_wait_time>
 
         <!-- This topic is used to control the elevator -->
         <topic>~/elevator</topic>
