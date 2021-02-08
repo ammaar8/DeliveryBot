@@ -16,12 +16,12 @@
       <link name="wingA">
         <visual name="visual">
           <geometry>
-            <mesh><uri>model://wingA/wingAv6.dae</uri></mesh>
+            <mesh><uri>model://wingA/wingAv7.dae</uri></mesh>
           </geometry>
         </visual>
         <collision name="collision">
           <geometry>
-            <mesh><uri>model://wingA/wingAv6.dae</uri></mesh>
+            <mesh><uri>model://wingA/wingAv7.dae</uri></mesh>
           </geometry>
         </collision>        
       </link>
@@ -128,14 +128,14 @@
         <visual name="visual">
           <geometry>
             <mesh>
-              <uri>model://wingA/elevator_door.dae</uri>
+              <uri>model://wingA/elevator_door/elevator_door.dae</uri>
             </mesh>
           </geometry>
         </visual>
         <collision name="collision">
           <geometry>
             <mesh>
-              <uri>model://wingA/elevator_door.dae</uri>
+              <uri>model://wingA/elevator_door/elevator_door.dae</uri>
             </mesh>
           </geometry>
         </collision>
