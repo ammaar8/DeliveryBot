@@ -1,6 +1,12 @@
 <launch>
-	<include file="$(find deliverybot_gazebo)/launch/willowgarage_world.launch" />
-	<include file="$(find deliverybot)/launch/spawn.launch" />
-	<include file="$(find deliverybot_control)/launch/deliverybot_control.launch" />
-	<include file="$(find deliverybot_nav)/launch/deliverybot_navigation.launch" />
+	<include file="$(find deliverybot_gazebo)/launch/simple_navigation.launch" />
+	
+	<param name="robot_description" command="$(find xacro)/xacro '$(find deliverybot)/urdf/elevator.urdf'" />
+	
+	<node name="spawn_elevator" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model elevator_model" respawn="false" output="screen" />
+
+	</node>
+
+<!--	<node name="rviz" pkg="rviz" type="rviz" /> -->
+	<node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" />
 </launch>

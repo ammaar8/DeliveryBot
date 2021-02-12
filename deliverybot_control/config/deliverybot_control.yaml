@@ -1,19 +1,9 @@
-robot:
-  joint_state_controller:
-    type: joint_state_controller/JointStateController
-    publish_rate: 50
-  
-  joint_door_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: joint_door
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+ 
+joint_door_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: joint_door
+  pid: {p: 100.0, i: 0.01, d: 10.0}
 
-  # joint_left_wheel_position_controller:
-  #   type: effort_controllers/JointPositionController
-  #   joint: joint_left_wheel
-  #   pid: {p: 100.0, i: 0.01, d: 10.0}
-
-  # joint_right_wheel_position_controller:
-  #   type: effort_controllers/JointPositionController
-  #   joint: joint_right_wheel
-  #   pid: {p: 100.0, i: 0.01, d: 10.0}

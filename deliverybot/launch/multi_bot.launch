@@ -1,0 +1,36 @@
+<launch>
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="paused" value="false"/>
+		<arg name="use_sim_time" value="true"/>
+		<arg name="gui" value="true"/>
+		<arg name="recording" value="false"/>
+		<arg name="debug" value="false"/>
+	</include>
+
+
+	<group ns="elevator">
+		<param name="robot_description" command="cat '$(find deliverybot)/urdf/elevator.urdf'"/>
+		<node name="elevator_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model elevator -x 0.0 -y 0.0 -z 0.0"/>
+    		<rosparam file="$(find elevator_control)/config/elevator_control.yaml" command="load" />
+
+		<node name="robot_controller_spawn" pkg="controller_manager" type="spawner" respawn="false" output="screen"
+ args="floor_position_controller elevator_state_controller" />
+
+    		<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
+	</group>
+<!--
+	<group ns="dbot">
+		<param name="robot_description" command="$(find xacro)/xacro '$(find deliverybot)/urdf/dbot_combined.xacro'"/>
+		<node name="dbot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model dbot -x 0.0 -y 0.0 -z 0.5"/>
+    		<rosparam file="$(find deliverybot_control)/config/deliverybot_control.yaml" command="load" />
+
+		<node name="robot_controller_spawn" pkg="controller_manager" type="spawner" respawn="false" output="screen"
+ args="joint_door_position_controller joint_state_controller" />
+
+    		<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
+	</group>
+-->
+
+
+<!--		<include file="$(find deliverybot_control)/launch/deliverybot_control.launch"/> -->
+</launch>

@@ -1,10 +1,4 @@
 <launch>
-    <!-- <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="$(find deliverybot_gazebo)/worlds/hotel.world"/>
-    </include>
-
-    <arg name="model" default="dbot_laser"/>
-    <param name="robot_description" command="$(find xacro)/xacro '$(find deliverybot)/urdf/$(arg model).xacro'"/> -->
 
     <rosparam file="$(find deliverybot_control)/config/deliverybot_control.yaml" command="load"/>
     

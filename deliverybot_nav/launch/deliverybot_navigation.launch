@@ -1,6 +1,6 @@
 <launch>
-    <arg name="map_file" default="$(find deliverybot)/maps/willowgarage.yaml" />
-    <arg name="move_forward_only" default="false" />
+    <arg name="map_file" default="$(find deliverybot)/maps/simple_navigation.yaml" />
+    <arg name="move_forward_only" default="true" />
 
     <!-- Map Server -->
     <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)" />
