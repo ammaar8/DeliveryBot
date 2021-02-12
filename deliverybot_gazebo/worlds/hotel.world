@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+	<include>
+		<uri>model://sun</uri>
+	</include>
+	<include>
+		<uri>model://ground_plane</uri>
+	</include>
+    <model name="hotel">
+      <pose>-5 5 2.95244904 0 0 0</pose>
+      <static>true</static>
+      <link name="hotel">
+        <visual name="visual">
+          <geometry>
+            <mesh><uri>model://hotel.stl</uri></mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh><uri>model://hotel.stl</uri></mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+  </world>
+</sdf>
