@@ -1,5 +1,5 @@
 <launch>
-	<rosparam file="$(find elevator_control)/config/testing_elevator.yaml" command="load" />
+	<rosparam file="$(find elevator_control)/config/elevator_control.yaml" command="load" />
 
 	<node name="elevator_controller_spawn" pkg="controller_manager" type="spawner" respawn="false" output="screen" 
 	args= "

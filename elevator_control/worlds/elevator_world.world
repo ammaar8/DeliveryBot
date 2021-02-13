@@ -1,0 +1,6 @@
+<sdf version="1.4" />
+<world name="default">
+	<model>
+		<uri>model://sun</uri>
+	</model>
+</world>
