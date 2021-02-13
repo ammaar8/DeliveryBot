@@ -1,23 +1,37 @@
 <?xml version="1.0"?>
 <robot name="elevator">
 
+
+
     <gazebo>
+        <gravity>0</gravity>
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
 		<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
         </plugin>
     </gazebo>
 
     <gazebo reference="world">
-        <turnGravityOff>true</turnGravityOff>
+    <gravity>0</gravity>
+        <static>true</static>
     </gazebo>
     
     <gazebo reference="shaft">
-        <gravity>false</gravity>
+        <collision>
+            <max_contact>0</max_contact>
+        </collision>
     	<static>true</static>
     </gazebo>    
 
     <gazebo reference="car">
-        <gravity>false</gravity>
+        <gravity>0</gravity>
+    </gazebo>    
+
+    <gazebo reference="car_door_left">
+        <gravity>0</gravity>
+    </gazebo>    
+
+    <gazebo reference="car_door_right">
+        <gravity>0</gravity>
     </gazebo>    
 
 	<gazebo>
@@ -42,16 +56,16 @@
             <mass value="2000" />
             <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
         </inertial>
-        <collision>
+        <collision name="collision">
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/shaft.dae" />
+                <mesh filename="package://elevator_control/models/elevator/shaft.dae" />
             </geometry>
         </collision>        
-        <visual>
+        <visual name="visual">
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/shaft.dae" />
+                <mesh filename="package://elevator_control/models/elevator/shaft.dae" />
             </geometry>
         </visual>
         <surface>
@@ -79,13 +93,13 @@
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/car.dae" />
+                <mesh filename="package://elevator_control/models/elevator/car.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/car.dae" />
+                <mesh filename="package://elevator_control/models/elevator/car.dae" />
             </geometry>
         </visual>
 	</link>
@@ -121,13 +135,13 @@
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/car_door_left.dae" />
+                <mesh filename="package://elevator_control/models/elevator/car_door_left.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/car_door_left.dae" />
+                <mesh filename="package://elevator_control/models/elevator/car_door_left.dae" />
             </geometry>
         </visual>
 	</link>
@@ -140,7 +154,7 @@
         <limit effort="100" lower="-0.5" upper="0.0" velocity="0.1" />
 	<dynamics damping="100.0" />
     </joint>
-
+link
     <transmission name="car_door_left_tran">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="car_door_left_joint">
@@ -162,13 +176,13 @@
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/car_door_right.dae" />
+                <mesh filename="package://elevator_control/models/elevator/car_door_right.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/car_door_right.dae" />
+                <mesh filename="package://elevator_control/models/elevator/car_door_right.dae" />
             </geometry>
         </visual>
 	</link>
@@ -205,13 +219,13 @@
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/lobby_door_left.dae" />
+                <mesh filename="package://elevator_control/models/elevator/lobby_door_left.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/lobby_door_left.dae" />
+                <mesh filename="package://elevator_control/models/elevator/lobby_door_left.dae" />
             </geometry>
         </visual>
 	</link>
@@ -246,13 +260,13 @@
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/lobby_door_right.dae" />
+                <mesh filename="package://elevator_control/models/elevator/lobby_door_right.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/lobby_door_right.dae" />
+                <mesh filename="package://elevator_control/models/elevator/lobby_door_right.dae" />
             </geometry>
         </visual>
 	</link>
@@ -287,13 +301,13 @@
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/first_door_left.dae" />
+                <mesh filename="package://elevator_control/models/elevator/first_door_left.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/first_door_left.dae" />
+                <mesh filename="package://elevator_control/models/elevator/first_door_left.dae" />
             </geometry>
         </visual>
 	</link>
@@ -327,13 +341,13 @@
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/first_door_right.dae" />
+                <mesh filename="package://elevator_control/models/elevator/first_door_right.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/first_door_right.dae" />
+                <mesh filename="package://elevator_control/models/elevator/first_door_right.dae" />
             </geometry>
         </visual>
 	</link>
@@ -368,13 +382,13 @@
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/second_door_left.dae" />
+                <mesh filename="package://elevator_control/models/elevator/second_door_left.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/second_door_left.dae" />
+                <mesh filename="package://elevator_control/models/elevator/second_door_left.dae" />
             </geometry>
         </visual>
 	</link>
@@ -408,13 +422,13 @@
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/second_door_right.dae" />
+                <mesh filename="package://elevator_control/models/elevator/second_door_right.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/urdf/elevator/second_door_right.dae" />
+                <mesh filename="package://elevator_control/models/elevator/second_door_right.dae" />
             </geometry>
         </visual>
 	</link>

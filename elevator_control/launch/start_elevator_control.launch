@@ -1,5 +1,6 @@
 <launch>
 	<rosparam file="$(find elevator_control)/config/elevator_control.yaml" command="load" />
+	<!-- <rosparam file="$(find elevator_control)/config/elevator_gazebo.yaml" command="load" /> -->
 
 	<node name="elevator_controller_spawn" pkg="controller_manager" type="spawner" respawn="false" output="screen" 
 	args= "
@@ -16,6 +17,5 @@
 		" />
 
 	<node name="elevator_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" >
-		<remap from="robot_description" to="elevator_description" />
 	</node>
 </launch>

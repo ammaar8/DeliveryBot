@@ -8,6 +8,7 @@ project(elevator_control)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  gazebo_ros
   controller_manager
   joint_state_controller
   robot_state_publisher

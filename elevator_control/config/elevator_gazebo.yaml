@@ -1,0 +1,3 @@
+gazebo:
+  elevator:
+    gravity_z: 0.0
