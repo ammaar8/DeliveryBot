@@ -38,6 +38,44 @@
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
+<<<<<<< Updated upstream
+=======
+
+	<transmission name="train_pusher">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_pusher">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_pusher">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<!-- <transmission name="tran_left_wheel">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_left_wheel">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_left_wheel">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="tran_right_wheel">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_right_wheel">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_right_wheel">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission> -->
+
+
+>>>>>>> Stashed changes
 	
 	<gazebo>
 		<plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
