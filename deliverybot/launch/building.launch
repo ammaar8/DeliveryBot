@@ -2,7 +2,7 @@
 <launch>
     // world
     <param name="/use_sim_time" value="true"/>
-    <node name="gazebo" pkg="gazebo_ros" type="gazebo" args="$(find elevator_control)/worlds/building_world.world">
+    <node name="gazebo" pkg="gazebo_ros" type="gazebo" args="$(find elevator_control)/worlds/building_world.world -u">
     </node>
 
     // elevator
@@ -53,7 +53,7 @@
         <rosparam file="$(find deliverybot_control)/config/deliverybot_control.yaml" command="load"/>
 
         <node name="robot_controller_spawn" pkg="controller_manager" type="spawner" respawn="false"
-            output="screen" args="joint_door_position_controller joint_state_controller" />
+            output="screen" args="joint_door_position_controller joint_pusher_position_controller joint_state_controller" />
         
         <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
 

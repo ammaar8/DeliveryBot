@@ -11,7 +11,7 @@
     
     <link name="body">
         <visual>
-            <origin xyz="-5.55112e-17 -0.00273569 -0.05" rpy="0 -0 0" />
+            <origin xyz="-5.55112e-17 -0.00273569 -0.05" rpy="0 0 0" />
             <geometry>
                 <mesh filename="package://deliverybot/urdf/meshes/body.stl"/>
             </geometry>
@@ -20,7 +20,7 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="-5.55112e-17 -0.00273569 -0.05" rpy="0 -0 0" />
+            <origin xyz="-5.55112e-17 -0.00273569 -0.05" rpy="0 0 0" />
             <geometry>
                 <mesh filename="package://deliverybot/urdf/meshes/body.stl"/>
             </geometry>
@@ -31,7 +31,7 @@
         <inertial>
             <origin xyz="7.95747e-17 0.0121391 0.137455" rpy="0 0 0"/>
             <mass value="9.21638" />
-            <inertia ixx="0.266181" ixy="-3.31633e-16" ixz="-1.63779e-16" iyy="0.281274" iyz="-0.0141244" izz="0.161564" />
+            <inertia ixx="0.266" ixy="-1.282e-16" ixz="-1.605e-16" iyy="0.281" iyz="-0.014" izz="0.162" />
         </inertial>
     </link>
 
@@ -55,7 +55,7 @@
             </material>
         </collision>
         <inertial>
-            <origin xyz="8.32667e-18 0 -0.025" rpy="0 0 0"/>
+            <origin xyz="8.32667e-18 0 -0.025" rpy="1.5707 0 0"/>
             <mass value="1.65248" />
             <inertia ixx="0.00447546" ixy="-1.05108e-18" ixz="0" iyy="0.00826239" iyz="0" izz="0.00447546" />
         </inertial>
@@ -90,7 +90,7 @@
             </material>
         </collision>
         <inertial>
-            <origin xyz="8.32667e-18 0 -0.025" rpy="0 0 0"/>
+            <origin xyz="8.32667e-18 0 -0.025" rpy="1.5707 0 0"/>
             <mass value="1.65248" />
             <inertia ixx="0.00447546" ixy="-1.05108e-18" ixz="0" iyy="0.00826239" iyz="0" izz="0.00447546" />
         </inertial>
@@ -160,7 +160,7 @@
             </material>
         </collision>
         <inertial>
-            <origin xyz="-0.000258506 0.145116 -0.145" rpy="0 0 0"/>
+            <origin xyz="-0.000258506 0.145116 -0.145" rpy="1.5707 0 1.5707"/>
             <mass value="0.596718" />
             <inertia ixx="0.00521211" ixy="0" ixz="2.98715e-05" iyy="0.00816722" iyz="0" izz="0.0129235" />
         </inertial>
@@ -252,18 +252,24 @@
                 <mesh filename="package://deliverybot/urdf/meshes/pusher.dae" />
             </geometry>
         </visual>
+        <collision name="collision">
+            <origin xyz="0 0 0" rpy = "0 0 0"/>
+            <geometry>
+                <mesh filename="package://deliverybot/urdf/meshes/pusher.dae" />
+            </geometry>
+        </collision>        
         <inertial>
-            <origin xyz="-0.12 0 0.333" rpy="0 0 -1.5707" />
+            <origin xyz="-0.12 0 0.333" rpy="0 0 0" />
             <mass value="0.2" />
-            <inertia ixx="0.02" ixy="0" ixz="0" iyy="0.036" iyz="0" izz="0.016" />
+            <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.001" />
         </inertial>
     </link>
 
-    <joint name="pusher" type="prismatic">
+    <joint name="joint_pusher" type="prismatic">
         <origin xyz="-0.12 0 -0.05" rpy="0 0 -1.5707" />
         <parent link="base_link"/>
         <child link="pusher" />
         <axis xyz="0 1 0" />
-        <limit effort="100" lower="0" upper="0.24" velocity="0.5"/>
+        <limit effort="1000" lower="0" upper="0.24" velocity="0.5"/>
     </joint>
 </robot>
