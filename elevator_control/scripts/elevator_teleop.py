@@ -1,11 +1,15 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import rospy
 from std_msgs.msg import Float64
 import time
 import sys
+import tkinter as tk
 
 global ns
+
+rospy.init_node('elevator_teleop')
+rate = rospy.Rate(10)
 
 door = {
     "CLOSED": 0,
@@ -70,7 +74,7 @@ DOOR = door["CLOSED"]
 
 def go_to_floor(floor):
     global FLOOR, DOOR
-
+    rospy.loginfo("Going to " + str(floor) + " floor")
     FLOOR = int(floor)
     if DOOR != door["CLOSED"]:
         close_doors()
@@ -91,7 +95,6 @@ def open_doors():
 
     DOOR = door["OPEN"]
 
-
 def close_doors():
     global DOOR
     rospy.loginfo("CLOSING DOORS")
@@ -106,23 +109,49 @@ def close_doors():
     DOOR = door["CLOSED"]
 
 
-if __name__=="__main__":
-    rospy.init_node('elevator_teleop')
-    rate = rospy.Rate(10)
-    
-    while True:
-        option = int(input("1. Go to floor\n2. Open Doors\n3. Close Doors\nOption: "))
-        if(option == 1):
-            floor_no = int(input("Floor Number: "))
-            go_to_floor(floor_no)
-        elif(option == 2):
-            open_doors()
-        elif(option == 3):
-            close_doors()
-        else:
-            pass
+class Application(tk.Frame):
+    def __init__(self, master=None):
+        tk.Frame.__init__(self, master)
+        self.master = master
+        self.pack()
+        self.create_widgets()
+
+    def create_widgets(self):
+        selected_floor = tk.IntVar()
+        self.floor_label = tk.Label(self, text="Floor")
+        self.floor_label.pack(side="left")
+
+        self.dropdown_floors = tk.OptionMenu(self, selected_floor, 0, 1, 2, command=go_to_floor)
+        self.dropdown_floors.pack(side="left")
+
+        self.btn_open_doors = tk.Button(self, text="Open Doors", command = open_doors)
+        self.btn_open_doors.pack(side="bottom")
         
-        rate.sleep()
+        self.btn_close_doors = tk.Button(self, text="Close Doors", command = close_doors)
+        self.btn_close_doors.pack(side="bottom")        
+        
+
+
+if __name__=="__main__":
+    root = tk.Tk()
+    root.title('Elevator Controller')
+    app = Application(master=root)
+    app.mainloop()
+
+    
+    # while True:
+    #     option = int(input("1. Go to floor\n2. Open Doors\n3. Close Doors\nOption: "))
+    #     if(option == 1):
+    #         floor_no = int(input("Floor Number: "))
+    #         go_to_floor(floor_no)
+    #     elif(option == 2):
+    #         open_doors()
+    #     elif(option == 3):
+    #         close_doors()
+    #     else:
+    #         pass
+        
+    #     rate.sleep()
 
         
 

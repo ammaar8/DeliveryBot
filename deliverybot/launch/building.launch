@@ -33,7 +33,7 @@
                 " />
 	    <node name="elevator_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
 
-        <node name="elevator_teleop" pkg="elevator_control" type="elevator_teleop.py" output="screen" args="/elevator"/>
+        <!-- <node name="elevator_teleop" pkg="elevator_control" type="elevator_teleop.py" output="screen" args="/elevator"/> -->
     </group>
     
 
