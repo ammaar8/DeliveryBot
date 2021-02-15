@@ -8,7 +8,7 @@
     // elevator
     // elevator control
     <group ns="elevator">
-
+        <param name="tf_prefix" value="elevator" />
         <!-- Spawn Elevator Model -->
         <arg name="x" default="0"/>
         <arg name="y" default="0"/>
@@ -41,6 +41,7 @@
     
     <group ns="dbot">
         // dbot
+        <param name="tf_prefix" value="dbot" />
         <arg name="x" default="0.0"/>
         <arg name="y" default="-9.0"/>
         <arg name="z" default="0.5"/>
