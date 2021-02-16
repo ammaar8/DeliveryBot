@@ -2,14 +2,12 @@
 
 import rospy
 from std_msgs.msg import Float64
-import time
 import sys
 import tkinter as tk
 
 global ns
 
 rospy.init_node('elevator_teleop')
-rate = rospy.Rate(10)
 
 door = {
     "CLOSED": 0,
