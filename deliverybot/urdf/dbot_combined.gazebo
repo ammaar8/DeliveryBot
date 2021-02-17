@@ -88,10 +88,10 @@
 			<ray>
 				<scan>
 				<horizontal>
-					<samples>720</samples>
+					<samples>360</samples>
 					<resolution>1</resolution>
 					<min_angle>0</min_angle>
-					<max_angle>3.14159</max_angle>
+					<max_angle>3.1412</max_angle>
 				</horizontal>
 				</scan>
 				<range>
@@ -118,7 +118,7 @@
 
 	<gazebo reference="kinect">
 		<sensor name="kinect_camera" type="depth">
-			<update_rate>20</update_rate>
+			<update_rate>10</update_rate>
 			<camera>
 			<horizontal_fov>1.047198</horizontal_fov>
 			<image>

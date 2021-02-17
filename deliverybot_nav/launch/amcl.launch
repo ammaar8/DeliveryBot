@@ -1,8 +1,8 @@
 <launch>
   <!-- Arguments -->
-  <arg name="scan_topic"     default="scan"/>
+  <arg name="scan_topic"     default="/dbot/scan"/>
   <arg name="initial_pose_x" default="0.0"/>
-  <arg name="initial_pose_y" default="0.0"/>
+  <arg name="initial_pose_y" default="-9.0"/>
   <arg name="initial_pose_a" default="0.0"/>
 
   <!-- AMCL -->
@@ -23,7 +23,7 @@
     <param name="gui_publish_rate"          value="50.0"/>
 
     <remap from="scan"                      to="$(arg scan_topic)"/>
-    <param name="laser_max_range"           value="3.5"/>
+    <param name="laser_max_range"           value="6"/>
     <param name="laser_max_beams"           value="180"/>
     <param name="laser_z_hit"               value="0.5"/>
     <param name="laser_z_short"             value="0.05"/>
@@ -39,8 +39,8 @@
     <param name="odom_alpha2"               value="0.02"/>
     <param name="odom_alpha3"               value="0.02"/>
     <param name="odom_alpha4"               value="0.02"/>
-    <param name="odom_frame_id"             value="odom"/>
-    <param name="base_frame_id"             value="base_link"/>
+    <param name="odom_frame_id"             value="dbot/odom"/>
+    <param name="base_frame_id"             value="dbot/base_link"/>
 
   </node>
 </launch>

@@ -1,5 +1,5 @@
 <launch>
-    <arg name="map_file" default="$(find deliverybot)/maps/simple_navigation.yaml" />
+    <arg name="map_file" default="$(find deliverybot)/maps/building/lobby.yaml" />
     <arg name="move_forward_only" default="true" />
 
     <!-- Map Server -->

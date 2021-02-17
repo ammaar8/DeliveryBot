@@ -1,13 +1,41 @@
-obstacle_range: 3.0
-raytrace_range: 3.5
+robot_base_frame: dbot/base_link
 
-# robot_radius: 0.16
-# robot_footprint: [[-0.205, 0.150], [0.205, 0.150], [0.205, -0.176], [-0.205, -0.176]]
-robot_footprint: [[-0.150, 0.205], [0.150, 0.205], [0.176, -0.205], [-0.176, -0.205]]
-inflation_radius: 1.5
-cost_scaling_factor: 1.5
+max_obstacle_height: 4.0
+robot_radius: 0.25  
 
-map_type: costmap
-observation_sources: laser_scan_sensor point_cloud_sensor
-laser_scan_sensor: {sensor_frame: sensor_laser, datatype: LaserScan, topic: /scan, marking: true, clearing: true, persistence: 1.0}
-point_cloud_sensor: {sensor_frame: kinect, datatype: PointCloud2, topic: /kinect/depth/points, marking: true, clearing: true, persistence: 1.0}
+static_layer:
+  map_topic: /map
+  subscribe_to_updates: true
+
+obstacle_layer:
+  observation_sources: laser depth
+
+  laser:
+    topic: /dbot/scan
+    sensor_frame: dbot/sensor_laser
+    observation_persistence: 10.0
+    expected_update_rate: 10.0
+    data_type: LaserScan
+    clearing: true
+    marking: true
+    max_obstacle_height: 3.0
+    min_obstacle_height: 0.05
+    obstacle_range: 4.0
+    raytrace_range: 6.0
+
+  depth:
+    topic: /dbot/kinect/depth/points
+    sensor_frame: dbot/kinect
+    observation_persistence: 10.0
+    expected_update_rate: 10.0
+    data_type: PointCloud2
+    clearing: true
+    marking: true
+    max_obstacle_height: 3.0
+    min_obstacle_height: 0.05
+    obstacle_range: 3.0
+    raytrace_range: 3.0
+
+inflated_layer:
+  inflation_radius: 1.0
+  cost_scaling_factor: 10.0    

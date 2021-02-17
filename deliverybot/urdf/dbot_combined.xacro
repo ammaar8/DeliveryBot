@@ -204,7 +204,7 @@
     </link>
 
     <joint name="joint_laser_sensor" type="fixed">
-        <origin xyz="-5.55112e-17 -0.127736 0.535" rpy="0 0 3.14159" />
+        <origin xyz="-5.55112e-17 -0.127736 0.535" rpy="0 0 3.1412" />
         <parent link="body" />
         <child link="sensor_laser" />
         <axis xyz="0 0 1"/>
