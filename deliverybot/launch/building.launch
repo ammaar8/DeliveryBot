@@ -33,10 +33,8 @@
                 " />
 	    <node name="elevator_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
 
-        <!-- <node name="elevator_teleop" pkg="elevator_control" type="elevator_teleop.py" output="screen" args="/elevator"/> -->
+        <node name="elevator_teleop" pkg="elevator_control" type="elevator_teleop.py" output="screen" args="/elevator"/>
     </group>
-    
-
     
     
     <group ns="dbot">
@@ -56,8 +54,14 @@
             output="screen" args="door_position_controller pusher_position_controller joint_state_controller" />
         
         <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-
-        //navigation
         </node>
+
+        <node name="dbot_control_gui" pkg="deliverybot_control" type="dbot_controller_gui.py" args="/dbot" output="screen" />
     </group>
+
+    // navigation
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find deliverybot)/rviz/rviz.rviz" />
+    <node name="rqt" pkg="rqt_gui" type="rqt_gui" />
+
 </launch>
