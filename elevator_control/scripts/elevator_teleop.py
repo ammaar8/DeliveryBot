@@ -130,26 +130,8 @@ class Application(tk.Frame):
         
 
 
-if __name__=="__main__":
+if __name__== "__main__":
     root = tk.Tk()
     root.title('Elevator Controller')
     app = Application(master=root)
     app.mainloop()
-
-    
-    # while True:
-    #     option = int(input("1. Go to floor\n2. Open Doors\n3. Close Doors\nOption: "))
-    #     if(option == 1):
-    #         floor_no = int(input("Floor Number: "))
-    #         go_to_floor(floor_no)
-    #     elif(option == 2):
-    #         open_doors()
-    #     elif(option == 3):
-    #         close_doors()
-    #     else:
-    #         pass
-        
-    #     rate.sleep()
-
-        
-

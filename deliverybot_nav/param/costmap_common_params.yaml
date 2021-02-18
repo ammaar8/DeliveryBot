@@ -13,7 +13,7 @@ obstacle_layer:
   laser:
     topic: /dbot/scan
     sensor_frame: dbot/sensor_laser
-    observation_persistence: 10.0
+    observation_persistence: 2.0
     expected_update_rate: 10.0
     data_type: LaserScan
     clearing: true
@@ -26,7 +26,7 @@ obstacle_layer:
   depth:
     topic: /dbot/kinect/depth/points
     sensor_frame: dbot/kinect
-    observation_persistence: 10.0
+    observation_persistence: 2.0
     expected_update_rate: 10.0
     data_type: PointCloud2
     clearing: true
@@ -38,4 +38,4 @@ obstacle_layer:
 
 inflated_layer:
   inflation_radius: 1.0
-  cost_scaling_factor: 10.0    
+  cost_scaling_factor: 20.0    

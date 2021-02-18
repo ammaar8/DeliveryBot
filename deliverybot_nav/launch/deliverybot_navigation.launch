@@ -1,9 +1,9 @@
 <launch>
-    <arg name="map_file" default="$(find deliverybot)/maps/building/lobby.yaml" />
+    <!-- <arg name="map_file" default="$(find deliverybot)/maps/building/lobby.yaml" /> -->
     <arg name="move_forward_only" default="true" />
 
     <!-- Map Server -->
-    <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)" />
+    <!-- <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)" /> -->
     
     <!-- AMCL -->
     <include file="$(find deliverybot_nav)/launch/amcl.launch" />
