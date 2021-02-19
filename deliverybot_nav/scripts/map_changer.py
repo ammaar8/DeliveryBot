@@ -5,7 +5,7 @@ import subprocess
 import signal
 import os
 
-ROOT_PATH = os.path.split(os.getcwd())[0]
+ROOT_PATH = os.path.split(os.path.dirname((os.path.abspath(__file__))))[0]
 
 print(ROOT_PATH)
 MAPS_DIR = os.path.join(ROOT_PATH, "maps", "building")
@@ -44,6 +44,7 @@ class Application(tk.Frame):
 
 if __name__ == "__main__":
     root = tk.Tk()
+    change_map(0)
     root.title('Map Controller')
     app = Application(master=root)
     app.mainloop()

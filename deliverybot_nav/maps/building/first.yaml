@@ -1,4 +1,4 @@
-image: /home/solkar/catkin_ws/src/DeliveryBot/deliverybot_nav/maps/building/first.pgm
+image: first.pgm
 resolution: 0.050000
 origin: [-100.000000, -100.000000, 0.000000]
 negate: 0

@@ -64,5 +64,8 @@
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find deliverybot)/rviz/rviz.rviz" />
     <node name="rqt" pkg="rqt_gui" type="rqt_gui" />
 
+    <node name="map_controller" pkg="deliverybot_nav" type="map_changer.py" />
     <include file="$(find deliverybot_nav)/launch/deliverybot_navigation.launch" />
+    
+
 </launch>
