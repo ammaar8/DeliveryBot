@@ -50,7 +50,7 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
   
-  <depend>python3-tk</depend>
+  <depend>python-tk</depend>
 
   <build_depend>controller_manager</build_depend>
   <build_depend>joint_state_controller</build_depend>

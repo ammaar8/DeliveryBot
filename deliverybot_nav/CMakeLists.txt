@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   deliverybot
   deliverybot_control
   rospy
+  tf2
   deliverybot_gazebo
   move_base
   deliverybot_tf

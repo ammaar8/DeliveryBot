@@ -52,6 +52,7 @@
   <build_depend>deliverybot</build_depend>
   <build_depend>deliverybot_control</build_depend>
   <build_depend>deliverybot_gazebo</build_depend>
+  <depend>tf2</depend>
   <build_depend>deliverybot_tf</build_depend>
   <build_export_depend>deliverybot</build_export_depend>
   <build_export_depend>deliverybot_control</build_export_depend>
