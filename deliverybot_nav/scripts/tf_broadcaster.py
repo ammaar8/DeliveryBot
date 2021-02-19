@@ -6,12 +6,12 @@ from nav_msgs.msg import Odometry
 
 
 
-def cb(msg: Odometry):
+def cb(msg):
     br = tf2_ros.TransformBroadcaster()
     t = TransformStamped()
     t.header.stamp = msg.header.stamp
-    t.header.frame_id = msg.child_frame_id
-    t.child_frame_id = '/dbot/base_link'
+    t.header.frame_id = 'dbot/base_footprint'
+    t.child_frame_id = 'dbot/base_link'
     t.transform.translation.x = 0.0
     t.transform.translation.y = 0.0
     t.transform.translation.z = 0.05 - msg.pose.pose.position.z
