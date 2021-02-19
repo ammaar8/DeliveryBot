@@ -15,6 +15,7 @@
       <rosparam file="$(find deliverybot_nav)/param/local_costmap_params.yaml" command="load" />
       <rosparam file="$(find deliverybot_nav)/param/move_base_params.yaml" command="load" />
       <rosparam file="$(find deliverybot_nav)/param/dwa_local_planner_params.yaml" command="load" />
+      <rosparam file="$(find deliverybot_nav)/param/global_planner_params.yaml" command="load" />
 
       <remap from="cmd_vel" to="$(arg cmd_vel_topic)" />
       <remap from="odom" to="$(arg odom_topic)" />

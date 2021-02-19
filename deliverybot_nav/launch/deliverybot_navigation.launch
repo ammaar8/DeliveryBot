@@ -8,6 +8,7 @@
     <!-- AMCL -->
     <include file="$(find deliverybot_nav)/launch/amcl.launch" />
 
+    <!-- Odom transform -->
     <!-- Move Base -->
     <include file="$(find deliverybot_nav)/launch/move_base.launch">
         <arg name="move_forward_only" value="$(arg move_forward_only)"/>
