@@ -15,4 +15,4 @@ local_costmap:
   plugins:
     - {name: obstacle_layer, type: "costmap_2d::ObstacleLayer"}
     - {name: inflated_layer, type: "costmap_2d::InflationLayer"}
-    - {name: voxel_layer, type: "costmap_2d::VoxelLayer"}
+    # - {name: voxel_layer, type: "costmap_2d::VoxelLayer"}
