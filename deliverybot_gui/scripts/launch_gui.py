@@ -203,16 +203,20 @@ def change_map(floor):
     print("Map to " + floors[floor])
 
 # Package Model Spawner
-spawn_package_client = rospy.ServiceProxy('/gazebo/spawn_sd_model', SpawnModel)
+spawn_package_client = rospy.ServiceProxy('/gazebo/spawn_sdf_model', SpawnModel)
 
 
 def spawn_package(package_size):
+    models_path = os.path.join(rospack.get_path('deliverybot_gazebo'), 'models', 'payloads')
+    rospy.loginfo("Package Spawned")
+    pose = Pose()
+    pose.position.z = 0.15
     spawn_package_client(
-        model_name='package',
-        model_xml=open("path/to/sdf", 'r').read(),
+        model_name='payload',
+        model_xml=open(os.path.join(models_path, package_size + ".sdf"), 'r').read(),
         robot_namespace='',
-        initial_pose = Pose(),
-        reference_frame = "/dbot/base_link"
+        initial_pose = pose,
+        reference_frame = "dbot::base_link"
     )
 
 
@@ -293,7 +297,7 @@ class Application(tk.Frame):
         prop_widgets_frame.pack(fill='x')
         prop_widgets_frame.grid_columnconfigure(0, weight=1, uniform="hello")
 
-        self.small_btn = tk.Button(prop_widgets_frame, text="Small")
+        self.small_btn = tk.Button(prop_widgets_frame, text="Small", command=lambda: spawn_package("small_payload"))
         self.medium_btn = tk.Button(prop_widgets_frame, text="Medium")
         self.large_btn = tk.Button(prop_widgets_frame, text="Large")
 
