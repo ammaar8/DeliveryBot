@@ -3,13 +3,13 @@
 import rospy
 import Tkinter as tk
 from std_msgs.msg import Float64
+from sensor_msgs.msg import JointState
 import sys
 import os
 import signal
 import subprocess
 
 rospy.init_node("dbot_controller_gui")
-
 
 # Bot Controls
 door_pub = rospy.Publisher(
@@ -26,28 +26,68 @@ pusher_pub = rospy.Publisher(
 )
 
 
-DOOR_OPEN = 0.55
+DOOR_OPEN = 0.51
 DOOR_CLOSED = -1.57075
 PUSHER_OUT = 0.24
 PUSHER_IN = 0.0
+TOLERANCE_DOOR = 0.05
+TOLERANCE_PUSHER = 0.01 
 
-
-def open_door():
+def open_bot_door():
+    rospy.loginfo("Opening Bot Door")
     door_pub.publish(DOOR_OPEN)
 
 
-def close_door():
+def close_bot_door():
+    rospy.loginfo("Closing Bot Door")
     door_pub.publish(DOOR_CLOSED)
 
 
 def pusher_out():
+    rospy.loginfo("Pushing Package Out")
     pusher_pub.publish(PUSHER_OUT)
 
 
 def pusher_in():
+    rospy.loginfo("Retracting Pusher")
     pusher_pub.publish(PUSHER_IN)
 
 
+def deliver_package():
+    global DOOR_CLOSED, DOOR_OPEN, PUSHER_IN, PUSHER_IN, TOLERANCE_DOOR,TOLERANCE_PUSHER
+    DOOR_STATE = None
+    PUSHER_STATE = None
+
+    def check_door():
+        msg = rospy.wait_for_message('/dbot/joint_states', JointState)
+        DOOR_STATE = msg.position[0]
+        return DOOR_STATE
+
+    def check_pusher():
+        msg = rospy.wait_for_message('/dbot/joint_states', JointState)
+        PUSHER_STATE = msg.position[1]
+        return PUSHER_STATE
+    
+    while DOOR_STATE < DOOR_OPEN - TOLERANCE_DOOR:
+        DOOR_STATE = check_door()
+        open_bot_door()
+
+    while PUSHER_STATE < PUSHER_OUT - TOLERANCE_PUSHER:
+        PUSHER_STATE = check_pusher()
+        pusher_out()
+
+    while PUSHER_STATE > PUSHER_IN + TOLERANCE_PUSHER:
+        PUSHER_STATE = check_pusher()
+        pusher_in()
+
+    while DOOR_STATE > DOOR_CLOSED + TOLERANCE_DOOR:
+        DOOR_STATE = check_door()
+        close_bot_door()
+
+    rospy.loginfo("Package Drop Complete")
+     
+
+    
 # Elevator Controls
 
 elevator_door = {
@@ -106,12 +146,12 @@ def go_to_floor(floor):
     rospy.loginfo("Going to " + str(floor) + " floor")
     FLOOR = int(floor)
     if ELEVATOR_DOOR != elevator_door["CLOSED"]:
-        close_doors()
+        close_elevator_doors()
 
     floor_pub.publish(4.0 * floor)
 
 
-def open_doors():
+def open_elevator_doors():
     global ELEVATOR_DOOR
 
     rospy.loginfo("OPENING DOORS" + " FLOOR " + str(FLOOR))
@@ -126,7 +166,7 @@ def open_doors():
     ELEVATOR_DOOR = elevator_door["OPEN"]
 
 
-def close_doors():
+def close_elevator_doors():
     global ELEVATOR_DOOR
     rospy.loginfo("CLOSING DOORS")
 
@@ -179,17 +219,20 @@ class Application(tk.Frame):
         dbot_control_frame.grid_columnconfigure(0, weight=1)
 
         dbot_control_frame.pack(fill='x')
-        self.btn_open_door = tk.Button(dbot_control_frame, text="Open Door", command=open_door)
-        self.btn_open_door.grid(row=0,column=0, sticky="ew")
+        self.btn_open_bot_door = tk.Button(dbot_control_frame, text="Open Door", command=open_bot_door)
+        self.btn_open_bot_door.grid(row=0,column=0, sticky="ew")
 
-        self.btn_close_door = tk.Button(dbot_control_frame, text="Close Door", command=close_door)
-        self.btn_close_door.grid(row=1,column=0, sticky="ew")
+        self.btn_close_bot_door = tk.Button(dbot_control_frame, text="Close Door", command=close_bot_door)
+        self.btn_close_bot_door.grid(row=1,column=0, sticky="ew")
 
         self.btn_pusher_out = tk.Button(dbot_control_frame, text="Pusher Out", command=pusher_out)
         self.btn_pusher_out.grid(row=0,column=1, sticky="ew")
 
         self.btn_pusher_in = tk.Button(dbot_control_frame, text="Pusher In", command=pusher_in)
-        self.btn_pusher_in.grid(row=1,column=1,sticky="ew")        
+        self.btn_pusher_in.grid(row=1,column=1,sticky="ew")
+
+        self.btn_deliver = tk.Button(dbot_control_frame, text="Deliver Package", command=deliver_package)
+        self.btn_deliver.grid(row=0, column=2, rowspan=2, sticky="news")
 
 
     def create_elevator_widgets(self):
@@ -205,11 +248,11 @@ class Application(tk.Frame):
         self.dropdown_floors = tk.OptionMenu(elevator_control_frame, selected_floor, 0, 1, 2, command=go_to_floor)
         self.dropdown_floors.grid(row=1, column=0, sticky="ew")
 
-        self.btn_open_doors = tk.Button(elevator_control_frame, text="Open Doors", command = open_doors)
-        self.btn_open_doors.grid(row=0, column=1, sticky="ew")
+        self.btn_open_elevator_doors = tk.Button(elevator_control_frame, text="Open Doors", command = open_elevator_doors)
+        self.btn_open_elevator_doors.grid(row=0, column=1, sticky="ew")
         
-        self.btn_close_doors = tk.Button(elevator_control_frame, text="Close Doors", command = close_doors)
-        self.btn_close_doors.grid(row=1, column=1, sticky="ew")        
+        self.btn_close_elevator_doors = tk.Button(elevator_control_frame, text="Close Doors", command = close_elevator_doors)
+        self.btn_close_elevator_doors.grid(row=1, column=1, sticky="ew")        
 
     def create_map_widgets(self):
         map_widgets_frame = tk.LabelFrame(self, text="Map Control")
@@ -229,6 +272,6 @@ if __name__ == "__main__":
     root = tk.Tk()
     root.title("DeliveryBot Controller")
     root.resizable(False, False)
-	change_map(0)
+    change_map(0)
     app = Application(master=root)
     app.mainloop()
