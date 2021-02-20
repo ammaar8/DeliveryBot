@@ -2,9 +2,15 @@
 <launch>
     // world
     <param name="/use_sim_time" value="true"/>
-    <node name="gazebo" pkg="gazebo_ros" type="gazebo" args="$(find elevator_control)/worlds/building_world.world">
-    </node>
+    <arg name="gui" default="true" />
 
+    <group if="$(arg gui)">
+        <node name="gazebo" pkg="gazebo_ros" type="gazebo" args="$(find elevator_control)/worlds/building_world.world" />
+    </group>
+
+    <group unless="$(arg gui)">
+        <node name="gazebo" pkg="gazebo_ros" type="gzserver" args="$(find elevator_control)/worlds/building_world.world" />
+    </group>
     // elevator
     // elevator control
     <group ns="elevator">
@@ -33,7 +39,6 @@
                 " />
 	    <node name="elevator_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
 
-        <node name="elevator_teleop" pkg="elevator_control" type="elevator_teleop.py" output="screen" args="/elevator" />
     </group>
     
     
@@ -56,7 +61,6 @@
         <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
         </node>
 
-        <node name="dbot_control_gui" pkg="deliverybot_control" type="dbot_controller_gui.py" args="/dbot" output="screen" />
     </group>
 
     // navigation
@@ -64,8 +68,8 @@
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find deliverybot)/rviz/rviz.rviz" />
     <node name="rqt" pkg="rqt_gui" type="rqt_gui" />
 
-    <node name="map_controller" pkg="deliverybot_nav" type="map_changer.py" />
     <include file="$(find deliverybot_nav)/launch/deliverybot_navigation.launch" />
-    
+
+	<node name="deliverybot_gui" pkg="deliverybot_gui" type="launch_gui.py" />
 
 </launch>
