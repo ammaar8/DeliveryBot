@@ -229,5 +229,6 @@ if __name__ == "__main__":
     root = tk.Tk()
     root.title("DeliveryBot Controller")
     root.resizable(False, False)
+	change_map(0)
     app = Application(master=root)
     app.mainloop()
