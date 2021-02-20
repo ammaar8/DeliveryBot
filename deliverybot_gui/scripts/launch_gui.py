@@ -2,14 +2,18 @@
 
 import rospy
 import Tkinter as tk
+import rospkg
 from std_msgs.msg import Float64
+from geometry_msgs.msg import Pose
 from sensor_msgs.msg import JointState
 import sys
 import os
+from gazebo_msgs.srv import SpawnModel
 import signal
 import subprocess
 
 rospy.init_node("dbot_controller_gui")
+rospack = rospkg.RosPack()
 
 # Bot Controls
 door_pub = rospy.Publisher(
@@ -180,8 +184,8 @@ def close_elevator_doors():
 
 # Floor controller
 
-ROOT_PATH = os.path.split(os.path.split(os.path.dirname((os.path.abspath(__file__))))[0])[0]
-MAPS_DIR = os.path.join(ROOT_PATH, "deliverybot", "maps", "building")
+
+MAPS_DIR = os.path.join(rospack.get_path('deliverybot'), "maps", "building")
 floors = {
     0 : "lobby",
     1 : "first",
@@ -198,8 +202,22 @@ def change_map(floor):
     term = subprocess.Popen(["rosrun", "map_server", "map_server", str(os.path.join(MAPS_DIR, floors[floor] + ".yaml"))])
     print("Map to " + floors[floor])
 
+# Package Model Spawner
+spawn_package_client = rospy.ServiceProxy('/gazebo/spawn_sd_model', SpawnModel)
+
+
+def spawn_package(package_size):
+    spawn_package_client(
+        model_name='package',
+        model_xml=open("path/to/sdf", 'r').read(),
+        robot_namespace='',
+        initial_pose = Pose(),
+        reference_frame = "/dbot/base_link"
+    )
+
 
 class Application(tk.Frame):
+
     def __init__(self, master=None):
         tk.Frame.__init__(self, master)
         self.master = master
@@ -211,6 +229,7 @@ class Application(tk.Frame):
         self.create_bot_widgets()
         self.create_elevator_widgets()
         self.create_map_widgets()
+        self.create_prop_widgets()
 
 
     def create_bot_widgets(self):
@@ -254,6 +273,7 @@ class Application(tk.Frame):
         self.btn_close_elevator_doors = tk.Button(elevator_control_frame, text="Close Doors", command = close_elevator_doors)
         self.btn_close_elevator_doors.grid(row=1, column=1, sticky="ew")        
 
+
     def create_map_widgets(self):
         map_widgets_frame = tk.LabelFrame(self, text="Map Control")
         map_widgets_frame.pack(fill='x')
@@ -268,6 +288,22 @@ class Application(tk.Frame):
         self.floor_dropdown.grid(row=0, column=1, sticky="ew")
 
 
+    def create_prop_widgets(self):
+        prop_widgets_frame = tk.LabelFrame(self, text="Packages")
+        prop_widgets_frame.pack(fill='x')
+        prop_widgets_frame.grid_columnconfigure(0, weight=1, uniform="hello")
+
+        self.small_btn = tk.Button(prop_widgets_frame, text="Small")
+        self.medium_btn = tk.Button(prop_widgets_frame, text="Medium")
+        self.large_btn = tk.Button(prop_widgets_frame, text="Large")
+
+        self.large_btn.grid(row=0, column=0, sticky="ew")
+        self.medium_btn.grid(row=0, column=1, sticky="ew")
+        self.small_btn.grid(row=0, column=2, sticky="ew")
+        
+        
+
+
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("DeliveryBot Controller")
@@ -275,3 +311,4 @@ if __name__ == "__main__":
     change_map(0)
     app = Application(master=root)
     app.mainloop()
+
