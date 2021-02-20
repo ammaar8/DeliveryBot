@@ -8,8 +8,9 @@ from geometry_msgs.msg import Pose
 from sensor_msgs.msg import JointState
 import sys
 import os
-from gazebo_msgs.srv import SpawnModel
 import signal
+from gazebo_msgs.srv import SpawnModel
+from std_srvs.srv import Empty
 import subprocess
 
 rospy.init_node("dbot_controller_gui")
@@ -36,6 +37,7 @@ PUSHER_OUT = 0.24
 PUSHER_IN = 0.0
 TOLERANCE_DOOR = 0.05
 TOLERANCE_PUSHER = 0.01 
+
 
 def open_bot_door():
     rospy.loginfo("Opening Bot Door")
@@ -91,7 +93,6 @@ def deliver_package():
     rospy.loginfo("Package Drop Complete")
      
 
-    
 # Elevator Controls
 
 elevator_door = {
@@ -220,6 +221,14 @@ def spawn_package(package_size):
     )
 
 
+# auxiliary commands
+clear_costmaps_client = rospy.ServiceProxy('/move_base/clear_costmaps', Empty)
+
+def clear_costmaps():
+    rospy.loginfo("Clearing Costmaps")
+    clear_costmaps_client()
+
+
 class Application(tk.Frame):
 
     def __init__(self, master=None):
@@ -234,6 +243,7 @@ class Application(tk.Frame):
         self.create_elevator_widgets()
         self.create_map_widgets()
         self.create_prop_widgets()
+        self.create_auxiliary_widgets()
 
 
     def create_bot_widgets(self):
@@ -241,7 +251,7 @@ class Application(tk.Frame):
         dbot_control_frame.grid_rowconfigure(0, weight=1)
         dbot_control_frame.grid_columnconfigure(0, weight=1)
 
-        dbot_control_frame.pack(fill='x')
+        dbot_control_frame.pack(fill='x', pady=5)
         self.btn_open_bot_door = tk.Button(dbot_control_frame, text="Open Door", command=open_bot_door)
         self.btn_open_bot_door.grid(row=0,column=0, sticky="ew")
 
@@ -304,8 +314,15 @@ class Application(tk.Frame):
         self.large_btn.grid(row=0, column=0, sticky="ew")
         self.medium_btn.grid(row=0, column=1, sticky="ew")
         self.small_btn.grid(row=0, column=2, sticky="ew")
+
+
+    def create_auxiliary_widgets(self):
+        aux_widgets_frame = tk.LabelFrame(self, text="Auxiliary Commands")
+        aux_widgets_frame.pack(fill="x")
+        aux_widgets_frame.grid_columnconfigure(0, weight=1)
         
-        
+        self.clear_costmaps_btn = tk.Button(aux_widgets_frame, text="Clear Costmaps", command = clear_costmaps)
+        self.clear_costmaps_btn.grid(row=0, column=0, sticky="ew")
 
 
 if __name__ == "__main__":
