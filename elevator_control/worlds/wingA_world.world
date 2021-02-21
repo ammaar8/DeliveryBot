@@ -4,21 +4,21 @@
 	    <include>
 		    <uri>model://sun</uri>
 	    </include>
-	    <model name="building">
-		    <pose>0 0 0 0 0 0</pose>
+	    <model name="wingA">
+		    <pose>0 0 0 0 0 </pose>
 		    <static>true</static>
-		    <link name="building">
+		    <link name="wingA">
 		        <inertial>
 		            <mass>100</mass>
 		        </inertial>
     		    <visual name="visual">
 	    		    <geometry>
-	    			    <mesh><uri>model://building_elevator/building.dae</uri></mesh>
+	    			    <mesh><uri>model://wingA_elevator/wingA.dae</uri></mesh>
 	    		    </geometry>
 	    	    </visual>
 	    	    <collision name="collision">
 	    		    <geometry>
-	    			    <mesh><uri>model://building_elevator/building.dae</uri></mesh>
+	    			    <mesh><uri>model://wingA_elevator/wingA.dae</uri></mesh>
 	    		    </geometry>		
 	    	    </collision>
 	    	</link>

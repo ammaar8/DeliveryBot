@@ -1,6 +1,0 @@
-<launch>
-	<node 
-		name="gazebo" pkg="gazebo_ros" type="gazebo"
-		args="$(find elevator_control)/worlds/elevator_world.world">
-	</node>
-</launch>

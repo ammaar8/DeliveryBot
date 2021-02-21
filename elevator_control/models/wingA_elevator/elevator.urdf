@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <robot name="elevator">
-
-
+<!--WingA Elevator-->
 
     <gazebo>
         <gravity>0</gravity>
@@ -59,13 +58,13 @@
         <collision name="collision">
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/shaft.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/shaft.dae" />
             </geometry>
         </collision>        
         <visual name="visual">
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/shaft.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/shaft.dae" />
             </geometry>
         </visual>
         <surface>
@@ -93,13 +92,13 @@
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/car.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/car.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/car.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/car.dae" />
             </geometry>
         </visual>
 	</link>
@@ -135,13 +134,13 @@
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/car_door_left.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/car_door_left.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/car_door_left.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/car_door_left.dae" />
             </geometry>
         </visual>
 	</link>
@@ -176,13 +175,13 @@ link
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/car_door_right.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/car_door_right.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/car_door_right.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/car_door_right.dae" />
             </geometry>
         </visual>
 	</link>
@@ -219,13 +218,13 @@ link
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/lobby_door_left.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/lobby_door_left.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/lobby_door_left.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/lobby_door_left.dae" />
             </geometry>
         </visual>
 	</link>
@@ -260,13 +259,13 @@ link
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/lobby_door_right.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/lobby_door_right.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/lobby_door_right.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/lobby_door_right.dae" />
             </geometry>
         </visual>
 	</link>
@@ -301,13 +300,13 @@ link
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/first_door_left.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/first_door_left.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/first_door_left.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/first_door_left.dae" />
             </geometry>
         </visual>
 	</link>
@@ -341,13 +340,13 @@ link
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/first_door_right.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/first_door_right.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/first_door_right.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/first_door_right.dae" />
             </geometry>
         </visual>
 	</link>
@@ -382,13 +381,13 @@ link
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/second_door_left.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/second_door_left.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/second_door_left.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/second_door_left.dae" />
             </geometry>
         </visual>
 	</link>
@@ -422,13 +421,13 @@ link
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/second_door_right.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/second_door_right.dae" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://elevator_control/models/elevator/second_door_right.dae" />
+                <mesh filename="package://elevator_control/models/wingA_elevator/second_door_right.dae" />
             </geometry>
         </visual>
 	</link>

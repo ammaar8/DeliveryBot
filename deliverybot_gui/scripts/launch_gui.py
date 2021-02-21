@@ -30,7 +30,7 @@ pusher_pub = rospy.Publisher(
     queue_size=10
 )
 
-
+FLOOR_HEIGHT = 4.0
 DOOR_OPEN = 0.51
 DOOR_CLOSED = -1.57075
 PUSHER_OUT = 0.24
@@ -147,13 +147,13 @@ ELEVATOR_DOOR = elevator_door["CLOSED"]
 
 
 def go_to_floor(floor):
-    global FLOOR, ELEVATOR_DOOR
+    global FLOOR, ELEVATOR_DOOR, FLOOR_HEIGHT
     rospy.loginfo("Going to " + str(floor) + " floor")
     FLOOR = int(floor)
     if ELEVATOR_DOOR != elevator_door["CLOSED"]:
         close_elevator_doors()
 
-    floor_pub.publish(4.0 * floor)
+    floor_pub.publish(FLOOR_HEIGHT * floor)
 
 
 def open_elevator_doors():

@@ -5,11 +5,11 @@
     <arg name="gui" default="true" />
 
     <group if="$(arg gui)">
-        <node name="gazebo" pkg="gazebo_ros" type="gazebo" args="$(find elevator_control)/worlds/building_world.world" />
+        <node name="gazebo" pkg="gazebo_ros" type="gazebo" args="$(find elevator_control)/worlds/wingA_world.world" />
     </group>
 
     <group unless="$(arg gui)">
-        <node name="gazebo" pkg="gazebo_ros" type="gzserver" args="$(find elevator_control)/worlds/building_world.world" />
+        <node name="gazebo" pkg="gazebo_ros" type="gzserver" args="$(find elevator_control)/worlds/wingA_world.world" />
     </group>
     // elevator
     // elevator control
@@ -17,9 +17,9 @@
         <param name="tf_prefix" value="elevator" />
         <!-- Spawn Elevator Model -->
         <arg name="x" default="0"/>
-        <arg name="y" default="0"/>
+        <arg name="y" default="0"/>elevator_control
         <arg name="z" default="0"/>    
-        <param name="robot_description" command="$(find xacro)/xacro '$(find elevator_control)/models/building_elevator/elevator.urdf'"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find elevator_control)/models/wingA_elevator/elevator.urdf'"/>
         <node name="elevator_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model elevator -x $(arg x) -y $(arg y) -z $(arg z)"/>
 
         <!-- Start Elevator Control -->
@@ -46,7 +46,7 @@
         // dbot
         <param name="tf_prefix" value="dbot" />
         <arg name="x" default="0.0"/>
-        <arg name="y" default="-9.0"/>
+        <arg name="y" default="9.0"/>
         <arg name="z" default="0.5"/>
         <arg name="model" default="dbot_combined"/>
         <param name="robot_description" command="$(find xacro)/xacro '$(find deliverybot)/urdf/$(arg model).xacro'"/>
