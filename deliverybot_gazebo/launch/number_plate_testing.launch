@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find deliverybot_gazebo)/worlds/number_plate_wall_world.world"/>
+    <arg name="gui" default="true"/>
+  </include>
+</launch>
