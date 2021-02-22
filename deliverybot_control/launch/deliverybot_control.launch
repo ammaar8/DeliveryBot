@@ -1,5 +1,6 @@
 <launch>
-    <rosparam file="$(find deliverybot_control)/config/deliverybot_control.yaml" command="load" ns="dbot" />
+    <arg name="ns" default="dbot" />
+    <rosparam file="$(find deliverybot_control)/config/deliverybot_control.yaml" command="load" ns="$(arg ns)" />
 
     <node name="robot_controller_spawn" pkg="controller_manager" type="spawner" respawn="false"
         output="screen" ns="dbot" args="door_position_controller pusher_position_controller joint_state_controller" />
