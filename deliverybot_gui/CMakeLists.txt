@@ -8,7 +8,6 @@ project(deliverybot_gui)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  python-tk
   rospy
 )
 
@@ -104,7 +103,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES deliverybot_gui
-#  CATKIN_DEPENDS python-tk rospy
+#  CATKIN_DEPENDS python3-tk rospy
 #  DEPENDS system_lib
 )
 

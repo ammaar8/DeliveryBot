@@ -1,0 +1,8 @@
+<launch>
+    <include file="$(find deliverybot_gazebo)/launch/number_plate_testing.launch" />
+    <include file="$(find deliverybot)/launch/spawn_dbot.launch" />
+    <node pkg="deliverybot_control" type="dbot_controller_gui.py" name="dbot_gui" args="dbot"/>
+    <node pkg="rqt_robot_steering" type="rqt_robot_steering" name="dbot_steering" />
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find deliverybot_vision)/rviz/image_processing.rviz" />
+    <node pkg="deliverybot_vision" type="vision_testing.py" name="dbot_vision" />
+</launch>

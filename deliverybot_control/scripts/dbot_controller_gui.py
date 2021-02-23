@@ -1,9 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import rospy
 import sys
 from std_msgs.msg import Float64
-import Tkinter as tk
+import tkinter as tk
 
 global ns
 
