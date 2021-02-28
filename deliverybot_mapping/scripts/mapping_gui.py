@@ -268,7 +268,7 @@ class MappingGUI(tk.Frame):
         self.var_building_name = tk.StringVar()
         self.var_wing_name = tk.StringVar()
         self.var_floors = tk.StringVar()
-        self.var_numbering_format = tk.StringVar()
+        self.var_scheme = tk.StringVar()
 
         def add_room_coods_helper():
             if (self.var_room_number.get() != ""):
@@ -311,10 +311,10 @@ class MappingGUI(tk.Frame):
         label_elevator = tk.Label(mapping_frame, text="Elevator")
         label_elevator.grid(column=0, row=3, sticky="EW")
         #11
-        elevator_out_btn = tk.Button(mapping_frame, text="EL Out")
+        elevator_out_btn = tk.Button(mapping_frame, text="OUT", command=self.mark_elevator_out)
         elevator_out_btn.grid(column=1, row=3, sticky="EW")
         #12
-        elevator_in_btn = tk.Button(mapping_frame, text="EL In")
+        elevator_in_btn = tk.Button(mapping_frame, text="IN", command=self.mark_elevator_out)
         elevator_in_btn.grid(column=2, row=3, sticky="EW")
         #13
         label_pickup = tk.Label(mapping_frame, text="Lobby")
@@ -341,16 +341,16 @@ class MappingGUI(tk.Frame):
         building_floors_entry = tk.Entry(mapping_frame, bd=2, textvariable=self.var_floors)
         building_floors_entry.grid(column=1, row=6, sticky="ew")
         #21
-        building_floors_btn = tk.Button(mapping_frame, text="Save")
+        building_floors_btn = tk.Button(mapping_frame, text="Save", command=lambda: self.add_floor_count(self.var_floors.get()))
         building_floors_btn.grid(column=2, row=6, sticky="EW")
         #22
         building_scheme_label = tk.Label(mapping_frame, text="Scheme")
         building_scheme_label.grid(column=0, row=7, sticky="ew")
         #23
-        building_scheme_entry = tk.Entry(mapping_frame, bd=2, textvariable=self.var_numbering_format)
+        building_scheme_entry = tk.Entry(mapping_frame, bd=2, textvariable=self.var_scheme)
         building_scheme_entry.grid(column=1, row=7, sticky="ew")
         #24
-        building_scheme_btn = tk.Button(mapping_frame, text="Save")
+        building_scheme_btn = tk.Button(mapping_frame, text="Save", command=lambda: self.add_naming_scheme(self.var_scheme.get()))
         building_scheme_btn.grid(column=2, row=7, sticky="ew")        
 
 
