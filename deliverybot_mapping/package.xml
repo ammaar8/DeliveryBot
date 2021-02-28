@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>deliverybot_nav</name>
+  <name>deliverybot_mapping</name>
   <version>0.0.0</version>
-  <description>The deliverybot_nav package</description>
+  <description>The deliverybot_mapping package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
   <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="solkar@todo.todo">solkar</maintainer>
+  <maintainer email="asketch8@gmail.com">Ammaar Solkar</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
@@ -19,7 +19,7 @@
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/deliverybot_nav</url> -->
+  <!-- <url type="website">http://wiki.ros.org/deliverybot_mapping</url> -->
 
 
   <!-- Author tags are optional, multiple are allowed, one per tag -->
@@ -49,17 +49,13 @@
   <!-- Use doc_depend for packages you need only for building documentation: -->
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>deliverybot</build_depend>
-  <build_depend>deliverybot_control</build_depend>
-  <build_depend>deliverybot_gazebo</build_depend>
-  <depend>tf2</depend>
-  <build_export_depend>deliverybot</build_export_depend>
-  <build_export_depend>deliverybot_control</build_export_depend>
-  <build_export_depend>deliverybot_gazebo</build_export_depend>
-  <exec_depend>deliverybot</exec_depend>
-  <exec_depend>deliverybot_control</exec_depend>
-  <exec_depend>deliverybot_gazebo</exec_depend>
-
+  <build_depend>map_server</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_export_depend>map_server</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <exec_depend>map_server</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <depend>python-tk</depend> <!-- Till cannot fully switch to python3 -->
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
