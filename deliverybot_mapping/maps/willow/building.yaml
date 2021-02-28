@@ -1,0 +1,5 @@
+building: {floors: null, name: willow, scheme: null}
+lobby:
+  pickup: {a: null, x: null, y: null}
+rooms:
+  1: {a: 0.12812235104137434, x: -2.3636384110215833, y: -0.10267818848532123}
