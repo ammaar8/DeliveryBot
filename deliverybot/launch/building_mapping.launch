@@ -57,9 +57,9 @@
 
     </group>
 
-    // navigation
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find deliverybot)/rviz/rviz.rviz" />
     <node name="rqt" pkg="rqt_gui" type="rqt_gui" />
-    <node name="deliverybot_controller" pkg="deliverybot_gui" type="launch_gui.py" />
+    <node name="deliverybot_controller" pkg="deliverybot_control" type="dbot_controller_gui.py" args="/dbot"/>
+    <node name="elevator_controller" pkg="elevator_control" type="elevator_teleop.py" args="/elevator"/>
 </launch>

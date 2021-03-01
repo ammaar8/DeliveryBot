@@ -253,13 +253,13 @@ class MappingGUI(tk.Frame):
 
 
     def add_naming_scheme(self, scheme):
-        print("Floor Count Added", count)
+        print("Floor Count Added", scheme)
         trans = self.tfBuffer.lookup_transform(
             'map',
             'dbot/base_link',
             rospy.Time()
         )
-        self.map["building"]["scheme"] = count
+        self.map["building"]["scheme"] = scheme
         self.save_yaml()
 
 
