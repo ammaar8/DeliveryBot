@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
 
 import rospy
-import rospkg
 import sys
 from std_msgs.msg import Float64
 from sensor_msgs.msg import JointState
 from std_srvs.srv import Empty, EmptyResponse
 
-global ns
-
+global ns 
 ns = rospy.get_namespace()
-print("Controller started with ns" + ns)
+print("Controller started with ns " + ns)
 
 DOOR_OPEN = 0.51
 DOOR_CLOSED = -1.57075
