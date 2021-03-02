@@ -18,6 +18,6 @@ include_directories(
 
 
 catkin_install_python(PROGRAMS
-    scripts/deliverybot_hw_control.py
+    scripts/deliverybot_hw_controller.py
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

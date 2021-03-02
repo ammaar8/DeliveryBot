@@ -2,9 +2,15 @@
 
 import rospy
 import rospkg
+import sys
 from std_msgs.msg import Float64
 from sensor_msgs.msg import JointState
 from std_srvs.srv import Empty, EmptyResponse
+
+global ns
+
+ns = rospy.get_namespace()
+print("Controller started with ns" + ns)
 
 DOOR_OPEN = 0.51
 DOOR_CLOSED = -1.57075
@@ -14,14 +20,14 @@ TOLERANCE_DOOR = 0.05
 TOLERANCE_PUSHER = 0.01 
 
 door_pub = rospy.Publisher(
-    "/door_position_controller/command",
+    ns + "/door_position_controller/command",
     Float64,
     queue_size=10
 )
 
 
 pusher_pub = rospy.Publisher(
-    "/pusher_position_controller/command",
+    ns + "/pusher_position_controller/command",
     Float64,
     queue_size=10
 )
@@ -57,12 +63,12 @@ def deliver_package(req):
     PUSHER_STATE = None
 
     def check_door():
-        msg = rospy.wait_for_message('/joint_states', JointState)
+        msg = rospy.wait_for_message(ns + '/joint_states', JointState)
         DOOR_STATE = msg.position[0]
         return DOOR_STATE
 
     def check_pusher():
-        msg = rospy.wait_for_message('/joint_states', JointState)
+        msg = rospy.wait_for_message(ns + '/joint_states', JointState)
         PUSHER_STATE = msg.position[1]
         return PUSHER_STATE
     
