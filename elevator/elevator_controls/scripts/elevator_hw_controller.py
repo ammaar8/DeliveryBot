@@ -67,7 +67,6 @@ def go_to_floor(req):
     if DOOR != door["CLOSED"]:
         close_doors(req)
     car_pos_pub.publish(4.0 * req.floor)
-    rospy.Rate(1).sleep()
     return ElevatorFloorGoalResponse()
 
 def open_doors(req):
@@ -78,7 +77,6 @@ def open_doors(req):
     pub_car_right.publish(DOOR_OPEN)
     pub_car_left.publish(-DOOR_OPEN)
     DOOR = door["OPEN"]
-    rospy.Rate(1).sleep()
     return EmptyResponse()
 
 def close_doors(req):
@@ -89,7 +87,6 @@ def close_doors(req):
     pub_car_right.publish(0)
     pub_car_left.publish(0)
     DOOR = door["CLOSED"]
-    rospy.Rate(1).sleep()
     return EmptyResponse()
 
 if __name__ == "__main__":
