@@ -56,7 +56,8 @@
                 door_position_controller
                 pusher_position_controller
                 joint_state_controller
-                "/>
+                "
+        />
         
         <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
         <node name="deliverybot_hw_controller" pkg="deliverybot_control" type="deliverybot_hw_controller.py" />
