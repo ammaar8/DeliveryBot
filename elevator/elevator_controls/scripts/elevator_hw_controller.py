@@ -3,6 +3,7 @@
 import rospy
 from std_msgs.msg import Float64
 import sys
+from sensor_msgs.msg import JointState
 from std_srvs.srv import Empty, EmptyResponse
 from elevator_controls.srv import ElevatorFloorGoal, ElevatorFloorGoalResponse
 global ns 
@@ -62,11 +63,19 @@ DOOR = door["CLOSED"]
 
 def go_to_floor(req):
     global FLOOR, DOOR
+    goal_floor = 4.0 * req.floor
+    def check_floor():
+        msg = rospy.wait_for_message(rospy.names.ns_join(ns, 'joint_states'), JointState)
+        FLOOR_STATE = msg.position[0]
+        return FLOOR_STATE
+
     rospy.loginfo("Going to " + str(req.floor) + " floor")
     FLOOR = int(req.floor)
     if DOOR != door["CLOSED"]:
         close_doors(req)
-    car_pos_pub.publish(4.0 * req.floor)
+    
+    while abs(check_floor() - goal_floor) > 0.001:
+        car_pos_pub.publish(goal_floor)
     return ElevatorFloorGoalResponse()
 
 def open_doors(req):

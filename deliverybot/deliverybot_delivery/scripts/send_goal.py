@@ -48,6 +48,7 @@ def execute_delivery():
 	change_map.call("/home/solkar/catkin_ws/src/DeliveryBot/deliverybot/deliverybot_mapping/maps/building/lobby.yaml")
 	movebase_client(-0.046, -2.095, 1.483) # EL out
 	el_open_door.call() # Open Doors
+	rospy.sleep(5)
 	movebase_client(0.0, 0.0, -1.519) # El In
 	el_close_door.call() # Close Doors
 	el_change_floor(2) # Chagne Floor
@@ -61,8 +62,9 @@ def execute_delivery():
 	el_change_floor(0) # Change floor
 	rospy.sleep(20) # wait
 	change_map.call("/home/solkar/catkin_ws/src/DeliveryBot/deliverybot/deliverybot_mapping/maps/building/lobby.yaml") # Change Map
-	clear_costmap.call()
 	el_open_door.call() # Open Doors
+	rospy.sleep(5)
+	clear_costmap.call()
 	movebase_client(-0.046, -2.095, -1.483) # El out
 	el_close_door.call()# Close Doors
 	movebase_client(0.213, -11.056, -1.545) # Go to pickup

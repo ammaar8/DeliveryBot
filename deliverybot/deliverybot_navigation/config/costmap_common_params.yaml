@@ -13,7 +13,7 @@ obstacle_layer:
   laser:
     topic: /dbot/scan
     sensor_frame: dbot/sensor_laser
-    observation_persistence: 2.0
+    observation_persistence: 1.0
     expected_update_rate: 5.0
     data_type: LaserScan
     clearing: true

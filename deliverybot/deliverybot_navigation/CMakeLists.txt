@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   deliverybot_gazebo
   move_base
   std_msgs
+  actionlib_msgs
   message_generation
 )
 
@@ -18,13 +19,19 @@ add_service_files(
   MapFilePath.srv
 )
 
+add_action_files(
+  DIRECTORY action
+  FILES Deliver.action
+)
+
 generate_messages(
   DEPENDENCIES
+  actionlib_msgs
   std_msgs
 )
 
 catkin_package(
-  CATKIN_DEPENDS message_runtime
+  CATKIN_DEPENDS message_runtime actionlib_msgs
 )
 
 include_directories(
