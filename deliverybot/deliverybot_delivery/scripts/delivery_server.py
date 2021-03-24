@@ -89,8 +89,9 @@ class DeliveryServer(object):
 			pass
 		else:
 			rospy.logwarn("Action type " + str(action[0]) + " not recognized.")
-		
 
+		return result
+		
 	def load_building_description(self, building_name):
 		# TODO - replace map folder with DB
 		map_folder = os.path.abspath(rosparam.get_param('map_folder_path'))
@@ -239,7 +240,7 @@ class DeliveryServer(object):
 			(
 				os.path.abspath(os.path.join(rosparam.get_param('map_folder_path'), goal.building_name, 'lobby.yaml'))
 			)
-		))		
+		))
 		path.append((
 			"ACTION",
 			(
@@ -275,7 +276,6 @@ class DeliveryServer(object):
 		rospy.loginfo("Goal Received.")
 		success = True
 		plan = self.generate_plan(goal)
-		completed = 0
 		for action_type, action_value in plan:
 			if action_type == "MAP":
 				self.load_map(action_value)
@@ -285,10 +285,6 @@ class DeliveryServer(object):
 				self.move(*action_value)
 			else:
 				rospy.logerr("Unknown action type found in plan.")
-			completed+=1
-			rospy.loginfo(len(plan) - completed)
-			self._as.publish_feedback(len(plan))
-		
 		if success:
 			rospy.loginfo("Successfully delivered.")
 			self._as.set_succeeded(self._result)

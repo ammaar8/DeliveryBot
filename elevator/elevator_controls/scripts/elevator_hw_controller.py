@@ -70,12 +70,12 @@ def go_to_floor(req):
         return FLOOR_STATE
 
     rospy.loginfo("Going to " + str(req.floor) + " floor")
-    FLOOR = int(req.floor)
     if DOOR != door["CLOSED"]:
         close_doors(req)
     
     while abs(check_floor() - goal_floor) > 0.001:
         car_pos_pub.publish(goal_floor)
+    FLOOR = int(req.floor)        
     return ElevatorFloorGoalResponse()
 
 def open_doors(req):
@@ -85,6 +85,7 @@ def open_doors(req):
     floor_door_left_pubs[FLOOR].publish(-DOOR_OPEN)
     pub_car_right.publish(DOOR_OPEN)
     pub_car_left.publish(-DOOR_OPEN)
+    rospy.sleep(5)
     DOOR = door["OPEN"]
     return EmptyResponse()
 
@@ -95,6 +96,7 @@ def close_doors(req):
     floor_door_left_pubs[FLOOR].publish(0)
     pub_car_right.publish(0)
     pub_car_left.publish(0)
+    rospy.sleep(5)
     DOOR = door["CLOSED"]
     return EmptyResponse()
 
