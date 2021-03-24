@@ -21,6 +21,8 @@ include_directories(
 
 catkin_install_python(PROGRAMS
   scripts/send_goal.py
+  scripts/delivery_client.py
+  scripts/delivery_server.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
