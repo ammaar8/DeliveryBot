@@ -48,7 +48,6 @@
         <arg name="y" default="-17.5"/>
         <arg name="z" default="0.5"/>
         <param name="robot_description" command="$(find xacro)/xacro '$(find deliverybot_description)/urdf/dbot.xacro'"/>
-        <node name="dbot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model dbot -x $(arg x) -y $(arg y) -z $(arg z)"/>
         
         // dbot control
         <rosparam file="$(find deliverybot_control)/config/deliverybot_control.yaml" command="load"/>
@@ -63,5 +62,6 @@
         <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
         <node name="deliverybot_hw_controller" pkg="deliverybot_control" type="deliverybot_hw_controller.py" />
 
+        <node name="dbot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model dbot -x $(arg x) -y $(arg y) -z $(arg z) -Y 1.5707 -J joint_door -1.5707"/>
     </group>
 </launch>    
