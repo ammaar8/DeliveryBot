@@ -54,7 +54,7 @@
  	    <inertial>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <mass value="2000" />
-            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+            <inertia ixx="29054.238" ixy="-7.547e-14" ixz="1.865e-12" iyy="29225.912" iyz="96.272" izz="3640.449"/>
         </inertial>
         <collision name="collision">
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
@@ -83,12 +83,12 @@
         <parent link="world" />
         <child link="shaft" />
     </joint>
-
     <link name="car">
+
  	    <inertial>
             <origin rpy="0 0 0" xyz="0 0 0"/>
-            <mass value="1000" />
-            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+            <mass value="500" />
+            <inertia ixx="664.986" ixy="2.356e-14" ixz="1.807e-14" iyy="713.9" iyz="5.318" izz="595.613"/>
         </inertial>
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
@@ -109,8 +109,8 @@
         <parent link="shaft" />
         <child link="car" />
         <axis xyz="0 0 1" />
-        <limit effort="10000" lower="0.0" upper="8.0" velocity="0.5" />
-	    <dynamics damping="200" />
+        <limit effort="10000" lower="0.0" upper="8.0" velocity="1.0" />
+	    <dynamics damping="2000" />
     </joint>    
 
     <transmission name="floor_tran">

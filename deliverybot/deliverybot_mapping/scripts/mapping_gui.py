@@ -314,7 +314,7 @@ class MappingGUI(tk.Frame):
         elevator_out_btn = tk.Button(mapping_frame, text="OUT", command=self.mark_elevator_out)
         elevator_out_btn.grid(column=1, row=3, sticky="EW")
         #12
-        elevator_in_btn = tk.Button(mapping_frame, text="IN", command=self.mark_elevator_out)
+        elevator_in_btn = tk.Button(mapping_frame, text="IN", command=self.mark_elevator_in)
         elevator_in_btn.grid(column=2, row=3, sticky="EW")
         #13
         label_pickup = tk.Label(mapping_frame, text="Lobby")

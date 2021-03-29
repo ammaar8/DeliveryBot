@@ -1,9 +1,10 @@
 <launch>
   <!-- Arguments -->
   <arg name="scan_topic"     default="/dbot/scan"/>
-  <arg name="initial_pose_x" default="-0.0017716094016034202"/>
-  <arg name="initial_pose_y" default="-8.996990983495337"/>
-  <arg name="initial_pose_a" default="1.589362837143179"/>
+  <arg name="initial_pose_x" default="8.998051126081153"/>
+  <arg name="initial_pose_y" default="-17.496187924233098"/>
+  <arg name="initial_pose_a" default="1.5891208177771623"/>
+  
 
   <!-- AMCL -->
   <node pkg="amcl" type="amcl" name="amcl">

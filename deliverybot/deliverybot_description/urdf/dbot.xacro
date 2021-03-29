@@ -133,11 +133,11 @@
     </link>
 
     <joint name="joint_castor" type="fixed">
-        <origin xyz="-5.55112e-17 -0.127736 -0.025" rpy="0 -0 0" />
+        <origin xyz="-5.55112e-17 -0.127736 -0.025" rpy="0 0 0" />
         <parent link="body" />
         <child link="castor" />
         <axis xyz="0 0 1"/>
-        <limit effort="1" velocity="20" />
+        <limit effort="10000000" velocity="20000" />
         <joint_properties friction="0.0"/>
     </joint>
 

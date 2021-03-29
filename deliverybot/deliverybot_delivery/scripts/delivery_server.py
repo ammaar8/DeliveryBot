@@ -84,7 +84,9 @@ class DeliveryServer(object):
 		elif action[0] == "DELIVER_PACKAGE":
 			result = self.dbot_deliver.call()
 		elif action[0] == "CHANGE_FLOOR":
-			result = self.el_change_floor(action[1])
+			result = self.el_change_floor.call(action[1])
+		elif action[0] == "CLEAR_COSTMAP":
+			result = self.clear_costmap.call()
 		elif action[0] == "WAIT":
 			pass
 		else:
@@ -94,7 +96,7 @@ class DeliveryServer(object):
 		
 	def load_building_description(self, building_name):
 		# TODO - replace map folder with DB
-		map_folder = os.path.abspath(rosparam.get_param('map_folder_path'))
+		map_folder = os.path.abspath(os.environ.get('MAPS_FOLDER_PATH'))
 		with open(os.path.join(map_folder, building_name, 'building.yaml')) as f:
 			yaml_desc = yaml.safe_load(f)
 		return yaml_desc
@@ -107,7 +109,7 @@ class DeliveryServer(object):
 		path.append((
 			"MAP",
 			(
-				os.path.abspath(os.path.join(rosparam.get_param('map_folder_path'), goal.building_name, 'lobby.yaml'))
+				os.path.abspath(os.path.join(os.environ.get('MAPS_FOLDER_PATH'), goal.building_name, 'lobby.yaml'))
 			)
 		))
 		# elevator sequence
@@ -154,15 +156,15 @@ class DeliveryServer(object):
 			)
 		))
 		path.append((
-			"MAP",
-			(
-				os.path.abspath(os.path.join(rosparam.get_param('map_folder_path'), goal.building_name, 'floor.yaml'))
-			)
-		))
-		path.append((
 			"ACTION",
 			(
 				"ELEVATOR_DOOR_OPEN",
+			)
+		))
+		path.append((
+			"MAP",
+			(
+				os.path.abspath(os.path.join(os.environ.get('MAPS_FOLDER_PATH'), goal.building_name, 'floor.yaml'))
 			)
 		))
 		path.append((
@@ -215,6 +217,12 @@ class DeliveryServer(object):
 			)
 		))
 		path.append((
+			"ACTION",
+			(
+				"CLEAR_COSTMAP",
+			)
+		))		
+		path.append((
 			"MOVE",
 			(
 				building_desc["elevator"]["in"]["x"],
@@ -236,15 +244,15 @@ class DeliveryServer(object):
 			)
 		))
 		path.append((
-			"MAP",
-			(
-				os.path.abspath(os.path.join(rosparam.get_param('map_folder_path'), goal.building_name, 'lobby.yaml'))
-			)
-		))
-		path.append((
 			"ACTION",
 			(
 				"ELEVATOR_DOOR_OPEN",
+			)
+		))
+		path.append((
+			"MAP",
+			(
+				os.path.abspath(os.path.join(os.environ.get('MAPS_FOLDER_PATH'), goal.building_name, 'lobby.yaml'))
 			)
 		))
 		path.append((

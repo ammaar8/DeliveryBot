@@ -4,6 +4,10 @@
 	    <include>
 		    <uri>model://sun</uri>
 	    </include>
+		<physics type="ode">
+			<real_time_factor>1</real_time_factor>
+			<max_step_size>0.001</max_step_size>
+		</physics>
 	    <model name="building">
 		    <pose>0 0 0 0 0 0</pose>
 		    <static>true</static>
