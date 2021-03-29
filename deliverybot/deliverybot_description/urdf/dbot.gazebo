@@ -151,5 +151,134 @@
 				<hackBaseline>0</hackBaseline>
 			</plugin>
 		</sensor>
-	</gazebo>	  
+	</gazebo>
+
+<!-- Upper Camera -->
+	<gazebo reference="upper_camera_link">
+		<sensor type="camera" name="upper_camera">
+		<update_rate>30.0</update_rate>
+		<camera name="upper">
+			<horizontal_fov>1.3962634</horizontal_fov>
+			<image>
+				<width>800</width>
+				<height>800</height>
+				<format>R8G8B8</format>
+			</image>
+			<clip>
+				<near>0.02</near>
+				<far>300</far>
+			</clip>
+			<noise>
+				<type>gaussian</type>
+				<!-- Noise is sampled independently per pixel on each frame.
+					That pixel's noise value is added to each of its color
+					channels, which at that point lie in the range [0,1]. -->
+				<mean>0.0</mean>
+				<stddev>0.007</stddev>
+			</noise>
+		</camera>
+		<plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+			<alwaysOn>true</alwaysOn>
+			<updateRate>0.0</updateRate>
+			<cameraName>upper_camera</cameraName>
+			<imageTopicName>upper_camera_image</imageTopicName>
+			<cameraInfoTopicName>upper_camera_info</cameraInfoTopicName>
+			<frameName>upper_camera_link</frameName>
+			<hackBaseline>0.07</hackBaseline>
+			<distortionK1>0.0</distortionK1>
+			<distortionK2>0.0</distortionK2>
+			<distortionK3>0.0</distortionK3>
+			<distortionT1>0.0</distortionT1>
+			<distortionT2>0.0</distortionT2>
+		</plugin>
+		</sensor>
+	</gazebo>
+<!-- Upper Camera -->
+
+<!-- Right Camera -->
+	<gazebo reference="right_camera_link">
+		<sensor type="camera" name="right_camera">
+		<update_rate>30.0</update_rate>
+		<camera name="right">
+			<horizontal_fov>1.3962634</horizontal_fov>
+			<image>
+				<width>800</width>
+				<height>800</height>
+				<format>R8G8B8</format>
+			</image>
+			<clip>
+				<near>0.02</near>
+				<far>300</far>
+			</clip>
+			<noise>
+				<type>gaussian</type>
+				<!-- Noise is sampled independently per pixel on each frame.
+					That pixel's noise value is added to each of its color
+					channels, which at that point lie in the range [0,1]. -->
+				<mean>0.0</mean>
+				<stddev>0.007</stddev>
+			</noise>
+		</camera>
+		<plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+			<alwaysOn>true</alwaysOn>
+			<updateRate>0.0</updateRate>
+			<cameraName>right_camera</cameraName>
+			<imageTopicName>right_camera_image</imageTopicName>
+			<cameraInfoTopicName>right_camera_info</cameraInfoTopicName>
+			<frameName>right_camera_link</frameName>
+			<hackBaseline>0.07</hackBaseline>
+			<distortionK1>0.0</distortionK1>
+			<distortionK2>0.0</distortionK2>
+			<distortionK3>0.0</distortionK3>
+			<distortionT1>0.0</distortionT1>
+			<distortionT2>0.0</distortionT2>
+		</plugin>
+		</sensor>
+	</gazebo>
+
+<!-- Right Camera -->
+
+<!-- Left Camera -->
+	<gazebo reference="left_camera_link">
+		<sensor type="camera" name="left_camera">
+		<update_rate>30.0</update_rate>
+		<camera name="left">
+			<horizontal_fov>1.3962634</horizontal_fov>
+			<image>
+				<width>800</width>
+				<height>800</height>
+				<format>R8G8B8</format>
+			</image>
+			<clip>
+				<near>0.02</near>
+				<far>300</far>
+			</clip>
+			<noise>
+				<type>gaussian</type>
+				<!-- Noise is sampled independently per pixel on each frame.
+					That pixel's noise value is added to each of its color
+					channels, which at that point lie in the range [0,1]. -->
+				<mean>0.0</mean>
+				<stddev>0.007</stddev>
+			</noise>
+		</camera>
+		<plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+			<alwaysOn>true</alwaysOn>
+			<updateRate>0.0</updateRate>
+			<cameraName>left_camera</cameraName>
+			<imageTopicName>left_camera_image</imageTopicName>
+			<cameraInfoTopicName>left_camera_info</cameraInfoTopicName>
+			<frameName>left_camera_link</frameName>
+			<hackBaseline>0.07</hackBaseline>
+			<distortionK1>0.0</distortionK1>
+			<distortionK2>0.0</distortionK2>
+			<distortionK3>0.0</distortionK3>
+			<distortionT1>0.0</distortionT1>
+			<distortionT2>0.0</distortionT2>
+		</plugin>
+		</sensor>
+	</gazebo>
+
+<!-- Left Camera -->
+
 </robot>

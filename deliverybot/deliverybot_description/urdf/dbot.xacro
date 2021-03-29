@@ -177,7 +177,6 @@
     </joint>
 
 <!-- Lidar -->
-
     <link name="sensor_laser">
         <visual>
             <origin xyz="0 -0.125 0.56" rpy="3.14159 0 0" />
@@ -212,11 +211,11 @@
         <limit effort="1" velocity="20" />
         <joint_properties friction="0.0"/>
     </joint>
+<!-- Lidar -->
 
 <!-- Kinect -->
-
     <link name="kinect">
-        <visual>
+        <!-- <visual>
             <geometry>
                 <box size="0.02 0.02 0.02"></box>
             </geometry>
@@ -226,8 +225,7 @@
                 <box size="0.02 0.02 0.02"></box>
             </geometry>
         </collision>
-        <!-- TODO -->
-        <!-- Add Inertial Element -->
+        Add Inertial Element -->
     </link>
 
     <joint name="joint_kinect" type="fixed">
@@ -243,7 +241,7 @@
             <child link="kinect_frame_optical"/>
     </joint>
     <link name="kinect_frame_optical"/>
-
+<!-- Kinect -->
 
 <!-- Pusher -->
     <link name="pusher">        
@@ -273,4 +271,40 @@
         <axis xyz="0 1 0" />
         <limit effort="1000" lower="0" upper="0.24" velocity="0.5"/>
     </joint>
+<!-- Pusher -->
+
+
+<!-- Upper Camera -->
+  <joint name="upper_camera_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="-5.55112e-17 -0.127736 0.55" rpy="0 -0.2617 -1.5707" />
+    <parent link="body"/>
+    <child link="upper_camera_link"/>
+  </joint>
+
+  <link name="upper_camera_link" />
+<!-- Upper Camera -->
+
+<!-- Right Camera -->
+  <joint name="right_camera_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="-0.15 0 0.45" rpy="0 0 3.1415" />
+    <parent link="body"/>
+    <child link="right_camera_link"/>
+  </joint>
+
+  <link name="right_camera_link" />
+<!-- Right Camera -->
+
+<!-- Left Camera -->
+  <joint name="left_camera_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0.15 0 0.45" rpy="0 0 0" />
+    <parent link="body"/>
+    <child link="left_camera_link"/>
+  </joint>
+
+  <link name="left_camera_link" />
+<!-- Left Camera -->
+
 </robot>
