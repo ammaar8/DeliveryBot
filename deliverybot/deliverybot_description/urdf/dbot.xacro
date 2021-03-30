@@ -14,7 +14,7 @@
         <visual>
             <origin xyz="-5.55112e-17 -0.00273569 -0.05" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://deliverybot_description/urdf/meshes/body.stl"/>
+                <mesh filename="package://deliverybot_description/urdf/meshes/body.dae"/>
             </geometry>
             <material name="body_material">
                 <color rgba="0.768627 0.886275 0.952941 1.0"/>
@@ -23,7 +23,7 @@
         <collision>
             <origin xyz="-5.55112e-17 -0.00273569 -0.05" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://deliverybot_description/urdf/meshes/body.stl"/>
+                <mesh filename="package://deliverybot_description/urdf/meshes/body.dae"/>
             </geometry>
             <material name="body_material">
                 <color rgba="0.768627 0.886275 0.952941 1.0"/>
@@ -40,7 +40,7 @@
         <visual>
             <origin xyz="-0.075 -0.1 0.155" rpy="-1.5708 -1.5708 0" />
             <geometry>
-                <mesh filename="package://deliverybot_description/urdf/meshes/left_wheel.stl"/>
+                <mesh filename="package://deliverybot_description/urdf/meshes/left_wheel.dae"/>
             </geometry>
             <material name="left_wheel_material">
                 <color rgba="0.498039 0.498039 0.498039 1.0"/>
@@ -49,7 +49,7 @@
         <collision>
             <origin xyz="-0.075 -0.1 0.155" rpy="-1.5708 -1.5708 0" />
             <geometry>
-                <mesh filename="package://deliverybot_description/urdf/meshes/left_wheel.stl"/>
+                <mesh filename="package://deliverybot_description/urdf/meshes/left_wheel.dae"/>
             </geometry>
             <material name="left_wheel_material">
                 <color rgba="0.498039 0.498039 0.498039 1.0"/>
@@ -75,7 +75,7 @@
         <visual>
             <origin xyz="-0.075 -0.1 -0.155" rpy="-1.5708 -1.5708 0" />
             <geometry>
-                <mesh filename="package://deliverybot_description/urdf/meshes/right_wheel.stl"/>
+                <mesh filename="package://deliverybot_description/urdf/meshes/right_wheel.dae"/>
             </geometry>
             <material name="left_wheel_material">
                 <color rgba="0.498039 0.498039 0.498039 1.0"/>
@@ -84,7 +84,7 @@
         <collision>
             <origin xyz="-0.075 -0.1 -0.155" rpy="-1.5708 -1.5708 0" />
             <geometry>
-                <mesh filename="package://deliverybot_description/urdf/meshes/right_wheel.stl"/>
+                <mesh filename="package://deliverybot_description/urdf/meshes/right_wheel.dae"/>
             </geometry>
             <material name="right_wheel_material">
                 <color rgba="0.498039 0.498039 0.498039 1.0"/>
@@ -110,7 +110,7 @@
         <visual>
             <origin xyz="0 0.125 -0.025" rpy="0 -0 0" />
             <geometry>
-                <mesh filename="package://deliverybot_description/urdf/meshes/castor.stl"/>
+                <mesh filename="package://deliverybot_description/urdf/meshes/castor.dae"/>
             </geometry>
             <material name="castor_material">
                 <color rgba="0.960784 0.835294 0.470588 1.0"/>
@@ -119,7 +119,7 @@
         <collision>
             <origin xyz="0 0.125 -0.025" rpy="0 -0 0" />
             <geometry>
-                <mesh filename="package://deliverybot_description/urdf/meshes/castor.stl"/>
+                <mesh filename="package://deliverybot_description/urdf/meshes/castor.dae"/>
             </geometry>
             <material name="castor_material">
                 <color rgba="0.960784 0.835294 0.470588 1.0"/>
@@ -145,7 +145,7 @@
         <visual>
             <origin xyz="0.127 -0.205 -0.145" rpy="-1.5708 -1.5708 0" />
             <geometry>
-                <mesh filename="package://deliverybot_description/urdf/meshes/door.stl"/>
+                <mesh filename="package://deliverybot_description/urdf/meshes/door.dae"/>
             </geometry>
             <material name="door_material">
                 <color rgba="0.796078 0.905882 0.745098 1.0"/>
@@ -154,7 +154,7 @@
         <collision>
             <origin xyz="0.127 -0.205 -0.145" rpy="-1.5708 -1.5708 0" />
             <geometry>
-                <mesh filename="package://deliverybot_description/urdf/meshes/door.stl"/>
+                <mesh filename="package://deliverybot_description/urdf/meshes/door.dae"/>
             </geometry>
             <material name="door_material">
                 <color rgba="0.796078 0.905882 0.745098 1.0"/>
@@ -181,7 +181,7 @@
         <visual>
             <origin xyz="0 -0.125 0.56" rpy="3.14159 0 0" />
             <geometry>
-                <mesh filename="package://deliverybot_description/urdf/meshes/sensor_laser.stl"/>
+                <mesh filename="package://deliverybot_description/urdf/meshes/sensor_laser.dae"/>
             </geometry>
             <material name="sensor_laser_material">
                 <color rgba="0.34902 0.376471 0.4 1.0"/>
@@ -190,7 +190,7 @@
         <collision>
             <origin xyz="0 -0.125 0.56" rpy="3.14159 0 0" />
             <geometry>
-                <mesh filename="package://deliverybot_description/urdf/meshes/sensor_laser.stl"/>
+                <mesh filename="package://deliverybot_description/urdf/meshes/sensor_laser.dae"/>
             </geometry>
             <material name="sensor_laser_material">
                 <color rgba="0.34902 0.376471 0.4 1.0"/>
