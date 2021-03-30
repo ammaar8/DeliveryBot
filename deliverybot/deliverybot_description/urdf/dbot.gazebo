@@ -182,7 +182,7 @@
 			<updateRate>0.0</updateRate>
 			<cameraName>upper_camera</cameraName>
 			<imageTopicName>upper_camera_image</imageTopicName>
-			<cameraInfoTopicName>dbot/upper_camera/camera_info</cameraInfoTopicName>
+			<cameraInfoTopicName>/dbot/upper_camera/camera_info</cameraInfoTopicName>
 			<frameName>upper_camera_link</frameName>
 			<hackBaseline>0.07</hackBaseline>
 			<distortionK1>0.0</distortionK1>
@@ -224,7 +224,7 @@
 			<updateRate>0.0</updateRate>
 			<cameraName>right_camera</cameraName>
 			<imageTopicName>right_camera_image</imageTopicName>
-			<cameraInfoTopicName>dbot/right_camera/camera_info</cameraInfoTopicName>
+			<cameraInfoTopicName>/dbot/right_camera/camera_info</cameraInfoTopicName>
 			<frameName>right_camera_link</frameName>
 			<hackBaseline>0.07</hackBaseline>
 			<distortionK1>0.0</distortionK1>
@@ -267,7 +267,7 @@
 			<updateRate>0.0</updateRate>
 			<cameraName>left_camera</cameraName>
 			<imageTopicName>left_camera_image</imageTopicName>
-			<cameraInfoTopicName>left_camera/camera_info</cameraInfoTopicName>
+			<cameraInfoTopicName>/dbot/left_camera/camera_info</cameraInfoTopicName>
 			<frameName>left_camera_link</frameName>
 			<hackBaseline>0.07</hackBaseline>
 			<distortionK1>0.0</distortionK1>

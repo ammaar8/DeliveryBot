@@ -5,11 +5,11 @@
     <arg name="gui" default="true" />
 
     <group if="$(arg gui)">
-        <node name="gazebo" pkg="gazebo_ros" type="gazebo" args="-u $(find deliverybot_simulations)/worlds/complex_1_extras.world" />
+        <node name="gazebo" pkg="gazebo_ros" type="gazebo" args="-u $(find deliverybot_simulations)/worlds/inferno.world" />
     </group>
 
     <group unless="$(arg gui)">
-        <node name="gazebo" pkg="gazebo_ros" type="gzserver" args="$(find deliverybot_simulations)/worlds/complex_1_extras.world" />
+        <node name="gazebo" pkg="gazebo_ros" type="gzserver" args="$(find deliverybot_simulations)/worlds/inferno.world" />
     </group>
 
 

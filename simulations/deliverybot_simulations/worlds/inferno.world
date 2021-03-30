@@ -20,14 +20,14 @@
         <visual name='visual'>
           <geometry>
             <mesh>
-              <uri>model://complex_1/building_set2.obj</uri>
+              <uri>model://inferno/inferno.dae</uri>
             </mesh>
           </geometry>
         </visual>
         <collision name='collision'>
           <geometry>
             <mesh>
-              <uri>model://complex_1/building_set2.obj</uri>
+              <uri>model://inferno/inferno.dae</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
