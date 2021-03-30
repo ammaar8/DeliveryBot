@@ -1,5 +1,5 @@
 # Blender MTL File: 'building_set2.blend'
-# Material Count: 20
+# Material Count: 21
 
 newmtl Asphalt
 Ns 225.000000
@@ -158,6 +158,17 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
+
+newmtl OutdoorWall
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd /home/shlock/Pictures/textures/outdoor_wall.jpg
 
 newmtl SideWalk
 Ns 225.000000
