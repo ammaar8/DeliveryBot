@@ -10,7 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /media/solkar/Ammaar/textures/asphalt.jpg
+map_Kd /materials/textures/asphalt.jpg
 
 newmtl Black
 Ns 0.000000
@@ -21,7 +21,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /media/solkar/Ammaar/textures/black.jpg
+map_Kd /materials/textures/black.jpg
 
 newmtl Curb
 Ns 225.000000
@@ -32,7 +32,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /media/solkar/Ammaar/textures/curb.jpeg
+map_Kd /materials/textures/curb.jpeg
 
 newmtl Door
 Ns 225.000000
@@ -43,7 +43,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /media/solkar/Ammaar/textures/door.jpg
+map_Kd /materials/textures/door.jpg
 
 newmtl DoorFrame
 Ns 225.000000
@@ -54,7 +54,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /media/solkar/Ammaar/textures/door_frame.jpg
+map_Kd /materials/textures/door_frame.jpg
 
 newmtl ID10
 Ns 225.000000
@@ -95,7 +95,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /media/solkar/Ammaar/textures/marble_flooring.jpg
+map_Kd /materials/textures/marble_flooring.jpg
 
 newmtl Material.001
 Ns 225.000000
@@ -126,7 +126,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /media/solkar/Ammaar/textures/outdoor_wall.jpg
+map_Kd /materials/textures/outdoor_wall.jpg
 
 newmtl SideWalk
 Ns 225.000000
@@ -137,7 +137,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /media/solkar/Ammaar/textures/sidewalk.jpg
+map_Kd /materials/textures/sidewalk.jpg
 
 newmtl TV_Black
 Ns 225.000000
@@ -158,7 +158,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /media/solkar/Ammaar/textures/tv_screen.png
+map_Kd /materials/textures/tv_screen.png
 
 newmtl YellowWall
 Ns 225.000000
@@ -169,4 +169,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /media/solkar/Ammaar/textures/yellow_wall.jpg
+map_Kd /materials/textures/yellow_wall.jpg
