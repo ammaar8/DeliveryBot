@@ -13,7 +13,7 @@
   <build_export_depend>rospy</build_export_depend>
   <exec_depend>map_server</exec_depend>
   <exec_depend>rospy</exec_depend>
-  <depend>python-tk</depend> <!-- Till cannot fully switch to python3 -->
+  <exec_depend>cv_bridge</exec_depend>
 
   <export>
   </export>

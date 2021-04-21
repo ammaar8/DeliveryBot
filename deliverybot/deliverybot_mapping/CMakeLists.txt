@@ -6,10 +6,6 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
 )
 
-find_package(
-  python-tk
-)
-
 catkin_package()
 
 include_directories(
