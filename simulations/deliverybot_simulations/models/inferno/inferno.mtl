@@ -1,5 +1,5 @@
 # Blender MTL File: 'building_set2.blend'
-# Material Count: 16
+# Material Count: 25
 
 newmtl Asphalt
 Ns 225.000000
@@ -10,7 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /materials/textures/asphalt.jpg
+map_Kd materials/textures/asphalt.jpg
 
 newmtl Black
 Ns 0.000000
@@ -21,7 +21,16 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /materials/textures/black.jpg
+
+newmtl Black.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.015427 0.014222 0.015995
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
 
 newmtl Curb
 Ns 225.000000
@@ -32,7 +41,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /materials/textures/curb.jpeg
+map_Kd materials/textures/curb.jpeg
 
 newmtl Door
 Ns 225.000000
@@ -43,7 +52,18 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /materials/textures/door.jpg
+map_Kd materials/textures/door.jpg
+
+newmtl Door.001
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd materials/textures/door.jpg
 
 newmtl DoorFrame
 Ns 225.000000
@@ -54,7 +74,18 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /materials/textures/door_frame.jpg
+map_Kd materials/textures/door_frame.jpg
+
+newmtl DoorFrame.001
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.083346 0.800000 0.096320
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd materials/textures/door_frame.jpg
 
 newmtl ID10
 Ns 225.000000
@@ -95,7 +126,18 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /materials/textures/marble_flooring.jpg
+map_Kd materials/textures/marble_flooring.jpg
+
+newmtl MarbleFlooring.001
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd materials/textures/marble_flooring.jpg
 
 newmtl Material.001
 Ns 225.000000
@@ -126,7 +168,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /materials/textures/outdoor_wall.jpg
+map_Kd materials/textures/outdoor_wall.jpg
 
 newmtl SideWalk
 Ns 225.000000
@@ -137,7 +179,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /materials/textures/sidewalk.jpg
+map_Kd materials/textures/sidewalk.jpg
 
 newmtl TV_Black
 Ns 225.000000
@@ -158,7 +200,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /materials/textures/tv_screen.png
+map_Kd materials/textures/tv_screen.png
 
 newmtl YellowWall
 Ns 225.000000
@@ -169,4 +211,59 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /materials/textures/yellow_wall.jpg
+map_Kd /home/shlock/DeliveryBot/simulations/deliverybot_simulations/models/complex_1/yellow_wall.jpg
+
+newmtl YellowWall.001
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd materials/textures/yellow_wall.jpg
+
+newmtl plate_101
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd materials/textures/NumberPlates/plate_101.png
+
+newmtl plate_102
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd materials/textures/NumberPlates/plate_102.png
+
+newmtl plate_103
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd materials/textures/NumberPlates/plate_103.png
+
+newmtl plate_104
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd materials/textures/NumberPlates/plate_104.png
